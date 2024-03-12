@@ -75,8 +75,9 @@ profiles:
 #
 # This space below is where custom yaml items (e.g. pinning
 # sandpaper and varnish versions) should live
-sandpaper: astroDimitrios/sandpaper
-pegboard: astroDimitrios/pegboard
-varnish: astroDimitrios/varnish
+sandpaper: carpentries/sandpaper@enable-search
+# pegboard: astroDimitrios/pegboard
+varnish: carpentries/varnish@use-search-2023
+url: ‘https:www.astropython.com/intro-to-modern-fortran’
 
 

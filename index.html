@@ -356,7 +356,7 @@ explained in spoilers:</p>
   Legacy Fortran
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>You will see spoilers like this in the lesson. They contain features
 more commonly used in legacy code. These spoilers explain why the
@@ -368,20 +368,46 @@ feature is not used often in modern code.</p>
 <p>The follow on lesson <strong>Object Orientated Fortran</strong>
 (coming soon) contains further advanced topics.</p>
 </section><section><h2 class="section-heading" id="data-sets">Data Sets<a class="anchor" aria-label="anchor" href="#data-sets"></a></h2>
-<hr class="half-width"><p>Download the <a href="https://github.com/astroDimitrios/intro-to-modern-fortran" class="external-link">zip
-file</a> and unzip it in your Desktop <strong>or</strong> check out this
-lessons <a href="https://github.com/carpentries-incubator/intro-to-modern-fortran/" class="external-link">git
-repository</a> and navigate to the following directory:
-<code>episodes/data/learners</code>. This contains data and skeleton
-code which we will use throughout the course. This course refers to this
-<code>learners</code> directory as the <strong>data directory</strong>
-from this point on.</p>
+<hr class="half-width"><p>Download the <a href="exercises.tar.gz">tar file</a> and extract the
+contents in your Desktop. This file contains template code and data for
+some exercises. It also contains solutions for all exercises.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> mkdir ~/Desktop/intro-to-modern-fortran</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> cd ~/Desktop/intro-to-modern-fortran</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">$</span> tar <span class="at">-xzf</span> ~/Downloads/exercises.tar.gz <span class="at">--strip-components</span><span class="op">=</span>1</span></code></pre>
+</div>
+<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
+  <h3 class="accordion-header" id="headingSpoiler2">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Alternative Download Method
+  </h3>
+</button>
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div class="accordion-body">
+<p>If the tar file download fails the exercises and data sets are in
+this lessons GitHub repository:</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> cd ~/Desktop</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">$</span> git clone git@github.com:carpentries-incubator/intro-to-modern-fortran.git</span></code></pre>
+</div>
+<p>The <a href="https://github.com/carpentries-incubator/intro-to-modern-fortran/blob/main/exercises.tar.gz" class="external-link">tar
+file</a> is in the root directory. Alternatively the exercises are in
+the top level <code>exercises/</code> directory.</p>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="compiler-setup">Compiler Setup<a class="anchor" aria-label="anchor" href="#compiler-setup"></a></h2>
 <hr class="half-width"><p>Fortran is a compiled language. You have to translate your Fortran
-code to machine code before running the program. We can do this with a
-Fortran compiler. It is common to test your code with multiple
-compilers, as some are better at debugging certain errors than
-others.</p>
+code to machine code before running the program. We do this with a
+Fortran compiler. You should test your code with multiple compilers, as
+some are better at debugging certain errors than others.</p>
 <div class="section level3">
 <h3 id="installing-a-compiler">Installing a Compiler<a class="anchor" aria-label="anchor" href="#installing-a-compiler"></a></h3>
 <p>Your instructor may provide different instructions for installing a
@@ -417,10 +443,10 @@ installing <strong>GFortran</strong> as your first compiler.</p>
 Compiler Collection (GCC). Comprehensive installation instructions are
 on the [GFortran install page on fortran-lang][install-gfortran].</p>
 <p>You can also install GFortran via conda:</p>
-<div class="codewrapper sourceCode" id="cb1">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> conda install gfortran </span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> conda install gfortran </span></code></pre>
 </div>
 </div>
 <div id="nav-tabpanel-1-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Intel">
@@ -429,10 +455,10 @@ Install Instructions</a> <a href="https://www.intel.com/content/www/us/en/docs/o
 Install Instructions</a> The Intel compiler is not available for
 MacOS.</p>
 <p>You can also install the Intel compiler via conda:</p>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> conda install intel-fortran-rt</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> conda install intel-fortran-rt</span></code></pre>
 </div>
 </div>
 <div id="nav-tabpanel-1-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Flang">
@@ -442,10 +468,10 @@ built programs from source before we recommended choosing another
 compiler or installing Flang via conda. <a href="https://flang.llvm.org/docs/GettingStarted.html" class="external-link">Link to the Flang
 Getting Started page</a></p>
 <p>You can also install the Flang compiler via conda:</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> conda install flang</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> conda install flang</span></code></pre>
 </div>
 </div>
 <div id="nav-tabpanel-1-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Cray">
@@ -459,25 +485,31 @@ organisation may have a license for the Cray compiler.</p>
 <div class="section level3">
 <h3 id="testing-your-compiler">Testing your compiler<a class="anchor" aria-label="anchor" href="#testing-your-compiler"></a></h3>
 <p>Now you have a compiler installed you can compile a simple program.
-In the <a href="./setup.html#data-sets">data directory</a> navigate to
-<code>setup/hello_world.f90</code>. This is a Fortran program which
-contains:</p>
-<div class="codewrapper sourceCode" id="cb4">
+The <a href="./setup.html#data-sets">exercise and data file</a> you
+downloaded contains <code>setup/hello_world.f90</code>. This is a simple
+Fortran program:</p>
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">program</span> hello_world</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, <span class="st">'Hello World!'</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="kw">end program</span></span></code></pre>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">program</span> hello_world</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, <span class="st">'Hello World!'</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="kw">end program</span></span></code></pre>
 </div>
-<p>Open a terminal. Enter the setup directory:</p>
-<div class="codewrapper sourceCode" id="cb5">
+<p>Enter the setup directory:</p>
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> cd <span class="op">&lt;</span>path-to-your-data-directory<span class="op">&gt;</span>/setup</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> cd setup</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span><span class="va">hello_world.f90</span></span></code></pre>
 </div>
 <p>To compile the program run:</p>
 <div class="tabs">
@@ -505,40 +537,40 @@ contains:</p>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
 <div id="nav-tabpanel-2-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-GFortran">
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> gfortran hello_world.f90</span></code></pre>
-</div>
-</div>
-<div id="nav-tabpanel-2-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Intel">
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> ifx hello_world.f90</span></code></pre>
-</div>
-</div>
-<div id="nav-tabpanel-2-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Flang">
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> flang hello_world.f90</span></code></pre>
-</div>
-</div>
-<div id="nav-tabpanel-2-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Cray">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> ftn hello_world.f90</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> gfortran hello_world.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-2-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Intel">
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> ifx hello_world.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-2-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Flang">
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> flang hello_world.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-2-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Cray">
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> ftn hello_world.f90</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 <p>You should see a new file in the directory:</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -547,10 +579,10 @@ contains:</p>
 </div>
 <p>The <code>a.out</code> file is your compiled program. To run the
 program:</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> ./a.out</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">$</span> ./a.out</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -578,13 +610,13 @@ menu that provides additional Fortran-related options.</p>
 <code>M-x f90-mode</code>, but file extensions can be added to your <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html" class="external-link">Emacs
 initialization file</a> to ensure that these are recognised when opened.
 The format for this is</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">LISP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode lisp" tabindex="0"><code class="sourceCode commonlisp"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>(<span class="kw">setq</span> auto-mode-alist</span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>      (<span class="kw">append</span> '((<span class="st">"</span><span class="sc">\\</span><span class="st">.mf90"</span> . f90-mode)</span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>                (<span class="st">"</span><span class="sc">\\</span><span class="st">.X90"</span> . f90-mode)</span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>        ) auto-mode-alist))</span></code></pre>
+<pre class="sourceCode lisp" tabindex="0"><code class="sourceCode commonlisp"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>(<span class="kw">setq</span> auto-mode-alist</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>      (<span class="kw">append</span> '((<span class="st">"</span><span class="sc">\\</span><span class="st">.mf90"</span> . f90-mode)</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>                (<span class="st">"</span><span class="sc">\\</span><span class="st">.X90"</span> . f90-mode)</span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>        ) auto-mode-alist))</span></code></pre>
 </div>
 <div class="tabs">
 <nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">

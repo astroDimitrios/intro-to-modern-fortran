@@ -40,8 +40,3 @@ No knowledge of Fortran is assumed.
 No previous experience with compiled languages is required.
 
 ::::::::::::::::::::::::::::::::::::::::::::
-
-[workbench]: [Carpentries Workbench Documentation](https://carpentries.github.io/sandpaper-docs)
-[^archer2]: [ARCHER2](https://www.archer2.ac.uk/) is one of the UKs national supercomputing facilities.
-[^archer2-codes]: [ARCHER2 code use article](https://www.archer2.ac.uk/news/2021/05/19/code-use.html)
-[^fortran-standards]: [Fortran standards page on the Fortran Wiki](https://fortranwiki.org/fortran/show/Standards)

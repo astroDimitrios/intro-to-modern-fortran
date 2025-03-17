@@ -79,6 +79,6 @@ The follow on lesson **Object Orientated Fortran**
 (coming soon) contains further advanced topics.
 
 [workbench]: https://carpentries.github.io/sandpaper-docs
-[archer2]: ARCHER2 is one of the UKs national supercomputing facilities.
-[archer2-codes]: https://www.archer2.ac.uk/news/2021/05/19/code-use.html
-[fortran-standards]: https://fortranwiki.org/fortran/show/Standards
+[^archer2]: ARCHER2 is one of the UKs national supercomputing facilities.
+[^archer2-codes]: https://www.archer2.ac.uk/news/2021/05/19/code-use.html
+[^fortran-standards]: https://fortranwiki.org/fortran/show/Standards

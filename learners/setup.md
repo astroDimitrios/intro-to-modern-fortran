@@ -30,9 +30,10 @@ We recommend installing **GFortran**[1] as your first compiler.
 
 ::: group-tab
 
-## GFortran
+### GFortran
 
 GFortran is a free open source compiler.
+It is part of the Gnu Compiler Collection (GCC).
 Comprehensive installation instructions are on the
 [GFortran install page on fortran-lang][install-gfortran].
 
@@ -42,7 +43,7 @@ You can also install GFortran via conda:
 $ conda install gfortran 
 ```
 
-## Intel
+### Intel
 
 The Intel Fortran compiler is free through their oneAPI toolkit.
 
@@ -110,13 +111,13 @@ To compile the program run:
 
 ::: group-tab
 
-## GFortran
+### GFortran
 
 ```bash
 $ gfortran hello_world.f90
 ```
 
-## Intel
+### Intel
 
 ```bash
 $ ifx hello_world.f90
@@ -191,6 +192,3 @@ Initialization settings can be placed within your `~/.config/emacs/init.el` file
 The `.emacs` or `.emacs.el` file is an older method of configuring Emacs. This file is held in your home directory.
 
 :::::::::::::::::::::::::
-
-[1] GFortran is freely available as part of the Gnu Compiler Collection (GCC).
-    See the [GFortran install page on fortran-lang][install-gfortran]

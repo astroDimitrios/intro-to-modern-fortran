@@ -430,7 +430,7 @@ installing <strong>GFortran</strong> as your first compiler.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-1-GFortran" role="tabpanel">
+<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-GFortran">
 <p>GFortran is a free open source compiler. It is part of the Gnu
 Compiler Collection (GCC). Comprehensive installation instructions are
 on the [GFortran install page on fortran-lang][install-gfortran].</p>
@@ -441,7 +441,7 @@ on the [GFortran install page on fortran-lang][install-gfortran].</p>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> conda install gfortran </span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Intel" class="tab-pane" aria-labelledby="nav-tab-1-Intel" role="tabpanel">
+<div id="nav-tabpanel-1-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Intel">
 <p>The Intel Fortran compiler is free through their oneAPI toolkit. <a href="https://www.intel.com/content/www/us/en/docs/oneapi/installation-guide-linux/2025-0/intel-fortran-essentials.html#GUID-E8EA92E5-84BC-4550-9988-4A9147A1B769" class="external-link">Linux
 Install Instructions</a> <a href="https://www.intel.com/content/www/us/en/docs/oneapi/installation-guide-windows/2025-0/intel-fortran-essentials.html" class="external-link">Windows
 Install Instructions</a> The Intel compiler is not available for
@@ -453,7 +453,7 @@ MacOS.</p>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> conda install intel-fortran-rt</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Flang" class="tab-pane" aria-labelledby="nav-tab-1-Flang" role="tabpanel">
+<div id="nav-tabpanel-1-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Flang">
 <p>LLVM Flang is another open source compiler based on the LLVM compiler
 toolkit. Flang is installed from the LLVM source code. If you have not
 built programs from source before we recommended choosing another
@@ -466,7 +466,7 @@ Getting Started page</a></p>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> conda install flang</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Cray" class="tab-pane" aria-labelledby="nav-tab-1-Cray" role="tabpanel">
+<div id="nav-tabpanel-1-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Cray">
 <p>The <a href="https://cpe.ext.hpe.com/docs/latest/cce/index.html" class="external-link">HPE
 Cray Fortran compiler</a> is proprietary but highly optimised. Your
 organisation may have a license for the Cray compiler.</p>
@@ -522,28 +522,28 @@ contains:</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-2-GFortran" role="tabpanel">
+<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-GFortran">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> gfortran hello_world.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Intel" class="tab-pane" aria-labelledby="nav-tab-2-Intel" role="tabpanel">
+<div id="nav-tabpanel-2-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Intel">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> ifx hello_world.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Flang" class="tab-pane" aria-labelledby="nav-tab-2-Flang" role="tabpanel">
+<div id="nav-tabpanel-2-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Flang">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> flang hello_world.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Cray" class="tab-pane" aria-labelledby="nav-tab-2-Cray" role="tabpanel">
+<div id="nav-tabpanel-2-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Cray">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -623,16 +623,16 @@ The format for this is</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-1" class="tab-pane show active" aria-labelledby="nav-tab-1-1" role="tabpanel">
+<div id="nav-tabpanel-1-1" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-1">
 <p>From your home directory, initialization settings can be placed
 within your <code>.emacs.d/init.el</code> file.</p>
 </div>
-<div id="nav-tabpanel-1-2" class="tab-pane" aria-labelledby="nav-tab-1-2" role="tabpanel">
+<div id="nav-tabpanel-1-2" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-2">
 <p>Initialization settings can be placed within your
 <code>~/.config/emacs/init.el</code> file. This location follows the
 Linux desktop environment guidelines.</p>
 </div>
-<div id="nav-tabpanel-1-3" class="tab-pane" aria-labelledby="nav-tab-1-3" role="tabpanel">
+<div id="nav-tabpanel-1-3" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-3">
 <p>The <code>.emacs</code> or <code>.emacs.el</code> file is an older
 method of configuring Emacs. This file is held in your home
 directory.</p>

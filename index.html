@@ -296,13 +296,27 @@ numerically intensive science code. Far from the punchcards, and
 fixed-form formatting of Fortrans early days, modern Fortran is fast,
 supports object orientated programming and is easy to read.</p>
 <p>Fortran is often used to write code for High Performance Computing
-(HPC). Many of the research codes run on ARCHER2[^archer2] are Fortran
-programs.[^archer2-codes] Various areas of Science are covered by these
-Fortran programs. For example quantum chemistry, plasmas, and numerical
-weather prediction.</p>
+(HPC). Many of the research codes run on ARCHER2<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> are Fortran
+programs.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Various areas of Science are covered by
+these Fortran programs. For example quantum chemistry, plasmas, and
+numerical weather prediction.</p>
 <p>More recent standards of Fortran come under the umbrella term “Modern
 Fortran”. These are the Fortran 95 standard, and more recent
-standards.[^fortran-standards]</p>
+standards.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<div id="prerequisites" class="callout prereq">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check"></i>
+</div>
+<div id="prerequisites" class="callout-inner">
+<h3 class="callout-title">Prerequisites</h3>
+<div class="callout-content">
+<p>Learners <em>should</em> be familiar with the basic concepts of
+programming: variables, logic, control flow, loops, functions and so on.
+No knowledge of Fortran is assumed. No previous experience with compiled
+languages is required.</p>
+</div>
+</div>
+</div>
 <section><h2 class="section-heading" id="learning-outcomes">Learning Outcomes<a class="anchor" aria-label="anchor" href="#learning-outcomes"></a></h2>
 <hr class="half-width"><p>This course provides an introduction to writing Modern Fortran. It
 covers everything from basic syntax and variables. To functions, arrays,
@@ -328,7 +342,7 @@ explained in spoilers:</p>
   Legacy Fortran
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>You will see spoilers like this in the lesson. They contain features
 more commonly used in legacy code. These spoilers explain why the
@@ -339,25 +353,19 @@ feature is not used often in modern code.</p>
 </div>
 <p>The follow on lesson <strong>Object Orientated Fortran</strong>
 (coming soon) contains further advanced topics.</p>
-<div id="prerequisites" class="callout prereq">
-<div class="callout-square">
-<i class="callout-icon" data-feather="check"></i>
-</div>
-<div id="prerequisites" class="callout-inner">
-<h3 class="callout-title">Prerequisites</h3>
-<div class="callout-content">
-<p>Learners <em>should</em> be familiar with the basic concepts of
-programming: variables, logic, control flow, loops, functions and so on.
-No knowledge of Fortran is assumed. No previous experience with compiled
-languages is required.</p>
-</div>
-</div>
-</div>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</section><section id="setup"><section><h2 class="section-heading" id="data-sets">Data Sets<a class="anchor" aria-label="anchor" href="#data-sets"></a></h2>
+</section><div class="footnotes footnotes-end-of-document">
+<hr><ol><li id="fn1"><p>ARCHER2 is one of the UKs national supercomputing
+facilities.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://www.archer2.ac.uk/news/2021/05/19/code-use.html" class="external-link uri">https://www.archer2.ac.uk/news/2021/05/19/code-use.html</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://fortranwiki.org/fortran/show/Standards" class="external-link uri">https://fortranwiki.org/fortran/show/Standards</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol></div>
+
+
+      <section id="setup"><section><h2 class="section-heading" id="data-sets">Data Sets<a class="anchor" aria-label="anchor" href="#data-sets"></a></h2>
 <hr class="half-width"><p>Download the <a href="https://github.com/astroDimitrios/intro-to-modern-fortran" class="external-link">zip
 file</a> and unzip it in your Desktop <strong>or</strong> check out this
 lessons <a href="https://github.com/carpentries-incubator/intro-to-modern-fortran/" class="external-link">git
@@ -377,7 +385,7 @@ others.</p>
 <p>Your instructor may provide different instructions for installing a
 suitable compiler or have installed one for you. If you need to install
 a compiler yourself follow the instructions below. We recommend
-installing <strong>GFortran</strong>[1] as your first compiler.</p>
+installing <strong>GFortran</strong> as your first compiler.</p>
 <div class="tabs">
 <nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
 <button class="nav-link active" id="nav-tab-1-GFortran" name="GFortran" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-GFortran" type="button" role="tab" aria-controls="nav-tabpanel-1-GFortran" aria-selected="true">
@@ -644,7 +652,7 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/astroDimitrios/sandpaper/tree/4aa05d502eeb4de64fbcd430b468e22dd4952718" class="external-link">sandpaper (0.16.11)</a>, <a href="https://github.com/astroDimitrios/pegboard/tree/bad0be19a12f0c6545801b276ddf26c945f8bfd1" class="external-link">pegboard (0.7.7)</a>, and <a href="https://github.com/astroDimitrios/varnish/tree/7c1ab925aa2bd2e6769ba68caa820231306b105b" class="external-link">varnish (1.0.5)</a></p>
+        <p>Built with <a href="https://github.com/astroDimitrios/sandpaper/tree/4aa05d502eeb4de64fbcd430b468e22dd4952718" class="external-link">sandpaper (0.16.11)</a>, <a href="https://github.com/astroDimitrios/pegboard/tree/5e0d711121a581777d83cf270e298c933f112d52" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/astroDimitrios/varnish/tree/7c1ab925aa2bd2e6769ba68caa820231306b105b" class="external-link">varnish (1.0.5)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">

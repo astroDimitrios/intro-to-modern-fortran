@@ -26,7 +26,7 @@ as some are better at debugging certain errors than others.
 Your instructor may provide different instructions for installing
 a suitable compiler or have installed one for you.
 If you need to install a compiler yourself follow the instructions below.
-We recommend installing **GFortran**[1] as your first compiler.
+We recommend installing **GFortran** as your first compiler.
 
 ::: group-tab
 

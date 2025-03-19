@@ -15,7 +15,10 @@ any links that you are not going to use.
 [noc-link]: https://noc.ac.uk/
 [uk-met-link]: https://www.metoffice.gov.uk/
 
-[workbench]: Carpentries Workbench Documentation: https://carpentries.github.io/sandpaper-docs
+[this-course-link]: https://carpentries-incubator.github.io/intro-to-modern-fortran/
 
 [emacs-link]: https://www.gnu.org/software/emacs/
 [emacs-init-link]: https://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html
+
+[vscode-link]: https://code.visualstudio.com
+[vscode-modern-fortran]: https://marketplace.visualstudio.com/items?itemName=fortran-lang.linter-gfortran

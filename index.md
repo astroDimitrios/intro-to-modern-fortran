@@ -4,7 +4,7 @@ site: sandpaper::sandpaper_site
 
 ::: caution
 
-This is a new lesson built with [The Carpentries Workbench][workbench].
+This is a new lesson built with [The Carpentries Workbench][carpentries-workbench].
 It is currently in pre-alpha development by the
 [Edinburgh Parallel Computing Centre][epcc-link],
 the [National Centre for Atmospheric Science][ncas-link],

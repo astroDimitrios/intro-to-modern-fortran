@@ -5,8 +5,7 @@ title: Setup
 ## Learning Outcomes
 
 This course provides an introduction to writing Modern Fortran.
-It covers everything from basic syntax and variables.
-To functions, arrays, and modules.
+It covers everything from basic syntax and variables, to functions, arrays, and modules.
 Common Fortran idioms will be introduced and compared to C++.
 
 Within the first hour you will have:
@@ -95,7 +94,7 @@ It is part of the Gnu Compiler Collection (GCC).
 Comprehensive installation instructions are on the
 [GFortran install page on fortran-lang][install-gfortran].
 
-You can also install GFortran via conda:
+You can also install GFortran via [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html):
 
 ```bash
 $ conda install gfortran
@@ -104,17 +103,14 @@ $ conda install gfortran
 ### Intel
 
 The Intel Fortran compiler is free through their oneAPI toolkit.
+You can download only the compiler or
+the oneAPI Fortran Essentials toolkit.
 
-- [Linux Install Instructions](https://www.intel.com/content/www/us/en/docs/oneapi/installation-guide-linux/2025-0/intel-fortran-essentials.html#GUID-E8EA92E5-84BC-4550-9988-4A9147A1B769)
-- [Windows Install Instructions](https://www.intel.com/content/www/us/en/docs/oneapi/installation-guide-windows/2025-0/intel-fortran-essentials.html)
+- [Compiler Only Install Instructions - Linux and Windows](https://www.intel.com/content/www/us/en/developer/tools/oneapi/fortran-compiler-download.html)
+- [Linux oneAPI Fortran Essentials Install Instructions](https://www.intel.com/content/www/us/en/docs/oneapi/installation-guide-linux/2025-0/intel-fortran-essentials.html#GUID-E8EA92E5-84BC-4550-9988-4A9147A1B769)
+- [Windows oneAPI Fortran Essentials Install Instructions](https://www.intel.com/content/www/us/en/docs/oneapi/installation-guide-windows/2025-0/intel-fortran-essentials.html)
 
 Note: The Intel compiler is not available for macOS.
-
-You can also install the Intel compiler via conda:
-
-```bash
-$ conda install intel-fortran-rt
-```
 
 ### Flang
 
@@ -125,12 +121,6 @@ If you have not built programs from source before
 we recommended choosing another compiler
 or installing Flang via conda.
 [Link to the Flang Getting Started page](https://flang.llvm.org/docs/GettingStarted.html)
-
-You can also install the Flang compiler via conda:
-
-```bash
-$ conda install flang
-```
 
 ### Cray
 
@@ -226,13 +216,27 @@ cover compiling in more detail.
 
 ## Text Editors and Integrated Development Environments (IDEs)
 
-While Fortran files are plain text and can be edited with any plain text editor, it is recommened that you use an editor that is capable of _syntax highlighting_. Setup instructions for some editors are available below.
+Fortran files are plain text and can be edited with any plain text editor.
+We recommend you use an editor that is capable of ***syntax highlighting***.
+Setup instructions for some editors are available below.
+
+Editor Setup Quick Links:
+
+- [Emacs](#emacs)
+- [VS Code](#vs-code)
 
 ### Emacs
 
-[Emacs][emacs-link] is a cross-platform text editor available for Linux, MacOS, and Windows. Emacs applies syntax highlighting for most Fortran files, but additional file extensions, such as `.X90` may be valid Fortran files but will not be picked up in Emacs _f90-mode_. This mode allows for tab-completion of Fortran statements and the addition of a drop-down menu that provides additional Fortran-related options.
+[Emacs][emacs-link] is a cross-platform text editor available for Linux, macOS, and Windows.
+Emacs applies syntax highlighting for most Fortran files.
+Emacs ***f90-mode*** mode lets you tab complete Fortran statements.
+It also adds a drop-down menu providing additional Fortran-related options.
 
-Files can be manually set to f90-mode using `M-x f90-mode`, but file extensions can be added to your [Emacs initialization file][emacs-init-link] to ensure that these are recognised when opened. The format for this is
+Fortran files with different extensions, such as `.X90`, will not be picked up in this mode.
+Files can be manually set to ***f90-mode*** using `M-x f90-mode`.
+File extensions can be added to your [Emacs initialization file][emacs-init-link]
+so they are recognised as Fortran when opened.
+To add this to your initialisation file:
 
 ```lisp
 (setq auto-mode-alist
@@ -243,65 +247,77 @@ Files can be manually set to f90-mode using `M-x f90-mode`, but file extensions 
 
 ::::::::::::::::: tab
 
-### Windows/MacOS
+### Windows and macOS
 
-From your home directory, initialization settings can be placed within your `.emacs.d/init.el` file.
+From your home directory, initialization settings are placed in your `.emacs.d/init.el` file.
 
 ### Linux
 
-Initialization settings can be placed within your `~/.config/emacs/init.el` file. This location follows the Linux desktop environment guidelines.
+Initialization settings are placed in your `~/.config/emacs/init.el` file.
+This location follows the Linux desktop environment guidelines.
 
 ### Legacy (cross platform)
 
-The `.emacs` or `.emacs.el` file is an older method of configuring Emacs. This file is held in your home directory.
+The `.emacs` or `.emacs.el` file is an older method of configuring Emacs.
+This file is stored in your home directory.
 
 :::::::::::::::::::::::::
 
 ### VS Code
 
-[Visual Studio Code (VS Code)][vscode-link] is a powerful IDE available for Linux, macOS, and Windows. To bring the power of VS Code to bear on Fortran, two additions are required. The [Modern Fortran extension](vscode-modern-fortran) enhances Fortran support in VS Code, offering features such as syntax highlighting, IntelliSense for Fortran statements, and debugging capabilities, along with customization options to improve the coding experience for Fortran developers. The Modern Fortran extension depends on `fortls`: a language server that interfaces with the code editor.
+[Visual Studio Code (VS Code)][vscode-link] is another powerful cross-platform IDE.
+To use VS Code with Fortran we recommend two additions:
+
+- The [Modern Fortran extension][vscode-modern-fortran] provides syntax highlighting,
+  IntelliSense for Fortran statements, and debugging capabilities.
+  It also adds customization options to improve the coding experience for Fortran developers.
+- The Modern Fortran extension depends on `fortls`: a language server that interfaces VS Code.
+
+`fortls` must be installed before the Modern Fortran extension.
 
 ::::::::::::::::: tab
 
 ### PyPI
 
 ```bash
-pip install fortls
+$ pip install fortls
 ```
 
 ### Anaconda
 
 ```bash
-conda install -c conda-forge fortls
+$ conda install -c conda-forge fortls
 ```
 
 ### Brew
 
 ```bash
-brew install fortls
+$ brew install fortls
 ```
 
 ### Source
 
-The development version of `fortls` can be installed from GitHub via
+The development version of `fortls` can be installed from GitHub:
 
 ```bash
-pip install --user --upgrade git+git://github.com/fortran-lang/fortls
+$ pip install --user --upgrade git+git://github.com/fortran-lang/fortls
 ```
 
 :::::::::::::::::::::::::
 
-Once `fortls` is installed, install the [Modern Fortran extension](vscode-modern-fortran), and it should work out of the box.
+Once `fortls` is installed, install the [Modern Fortran extension][vscode-modern-fortran].
 
 #### Adding a ruler
 
-We recommend adding a ruler: essentially a vertical line in the editor which gives you a visual guide as to the number of characters you should include on a single line of code.
+We recommend adding a ruler.
+This is a vertical line in the editor after a set number of characters.
+Rulers help avoid long lines that are hard to read.
 
-To add a ruler at 80 characters to your VS Code editor window, in VS Code
+To add a ruler at 80 characters:
 
 1. Open the Command Palette (Press `Cmd+Shift+P`, or `Ctrl+Shift+P`)
-2. Type 'settings' and then select the option which says "Preferences: Open User Settings (JSON)"
-3. This should open the `settings.json` file in your editor. It may already have code in it.
+2. Type 'settings'. Then select the option which says "Preferences: Open User Settings (JSON)"
+3. This will open the `settings.json` file in your editor.
 4. Add the `editor.rulers` property to the JSON file, e.g.
 
 ```json
@@ -311,6 +327,5 @@ To add a ruler at 80 characters to your VS Code editor window, in VS Code
 }
 ```
 
-If you save the file, you should immediately see a vertical line appear in your editor.
-
-[install-gfortran]: https://fortran-lang.org/learn/os_setup/install_gfortran/
+Save the file.
+You should see a vertical line appear in your editor.

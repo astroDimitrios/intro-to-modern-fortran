@@ -122,6 +122,7 @@
             More <i data-feather="chevron-down"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+<li><a class="dropdown-item" href="discuss.html">Discussion</a></li>
 <li><a class="dropdown-item" href="reference.html">Reference</a></li>
           </ul>
 </li>
@@ -252,6 +253,54 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush3">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading3">
+        <a href="02-basics-variables.html">2. Variables</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush4">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading4">
+        <a href="02-basics-maths.html">3. Maths</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush5">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading5">
+        <a href="02-basics-logic.html">4. Logic</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="02-basics-strings.html">5. Strings</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -276,7 +325,8 @@
                       <li>
                         <a href="profiles.html">Learner Profiles</a>
                       </li>
-                      <li><a href="reference.html">Reference</a></li>
+                      <li><a href="discuss.html">Discussion</a></li>
+<li><a href="reference.html">Reference</a></li>
                     </ul>
 </div>
                 </div>
@@ -723,6 +773,1490 @@ the steps are the same for Fortran!<a href="#fnref1" class="footnote-back">↩�
 error</em>. If a program compiles but fails to run that’s a <em>runtime
 error</em>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
+</div></section><section id="aio-02-basics-variables"><p>Content from <a href="02-basics-variables.html">Variables</a></p>
+<hr>
+<p>Last updated on 2025-04-25 |
+
+        <a href="https://github.com/astroDimitrios/intro-to-modern-fortran/edit/main/episodes/02-basics-variables.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How do we declare and assign values to variables?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Understand the different intrinsic data types.</li>
+<li>Declare and assign variables and parameters.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Variables store information we can use in our programs. Fortran is a
+<strong><em>strongly typed</em></strong> language. Each variable must be
+declared with a type.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Fortran provides the following intrinsic
+(built-in) data types for variables:</p>
+<ul>
+<li>
+<code>integer</code>: A whole number which is positive, negative or
+zero.</li>
+<li>
+<code>real</code>: A real number includes the fractional part, even
+if the fractional part is 0.</li>
+<li>
+<code>complex</code>: A number made up of a real and an imaginary
+part.</li>
+<li>
+<code>logical</code>: A boolean value which can be
+<strong>.true.</strong> or <strong>.false.</strong>.</li>
+<li>
+<code>character</code>: A single ASCII character. Strings are made
+from sequences of characters.</li>
+</ul>
+<p>Variable names must be 63 characters or less (F2003 standard). No
+spaces are allowed. Names can contain the characters <code>a-z</code>,
+<code>A-Z</code>, <code>0-9</code> and the underscore <code>_</code>. No
+spaces are allowed. Names must begin with a letter. This also applies to
+names for programs, modules, subroutines, and functions, which you will
+learn about later in the course.</p>
+<p>Do <strong>not</strong> use Fortran keywords as variable names.
+Fortran will let you overwrite these keywords if you’re not careful. The
+<a href="https://fortranwiki.org/fortran/show/Keywords" class="external-link">Fortran wiki
+keywords page</a> contains a list of all Fortran keywords.</p>
+<section><h2 class="section-heading" id="declaring-variables">Declaring Variables<a class="anchor" aria-label="anchor" href="#declaring-variables"></a>
+</h2>
+<hr class="half-width">
+<p>Fortran variables are declared with this syntax:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="op">&lt;</span>variable_type<span class="op">&gt;</span> <span class="dt">::</span> <span class="op">&lt;</span>variable_name<span class="op">&gt;</span></span></code></pre>
+</div>
+<p>So to declare an integer:</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="dt">integer</span> <span class="dt">::</span> number_of_pelicans</span></code></pre>
+</div>
+<div id="create-a-variables-program" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="create-a-variables-program" class="callout-inner">
+<h3 class="callout-title">Create a <code>variables</code> program</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal">
+<li>Create a new Fortran program named <code>variables.f90</code>.</li>
+<li>Declare 5 variables. One of each of the 5 intrinsic data types.</li>
+<li>Print your variables.</li>
+<li>Compile and run your program.</li>
+</ol>
+<p>What do you notice about the output?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">program</span> variables</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    <span class="dt">integer</span>   <span class="dt">::</span> number_of_pelicans</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>    <span class="dt">real</span>      <span class="dt">::</span> pelican_weight</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    <span class="dt">complex</span>   <span class="dt">::</span> pelican_population_dynamics</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    <span class="dt">logical</span>   <span class="dt">::</span> is_young_pelican</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>    <span class="dt">character</span> <span class="dt">::</span> pelican_tag</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, number_of_pelicans</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_weight</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_population_dynamics</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, is_young_pelican</span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_tag</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="kw">end program</span> variables</span></code></pre>
+</div>
+<div class="tabs">
+<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-1-GFortran" name="GFortran" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-GFortran" type="button" role="tab" aria-controls="nav-tabpanel-1-GFortran" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-1-GFortran">
+  GFortran
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-Intel" name="Intel" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Intel" type="button" role="tab" aria-controls="nav-tabpanel-1-Intel" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-Intel">
+  Intel
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-Flang" name="Flang" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Flang" type="button" role="tab" aria-controls="nav-tabpanel-1-Flang" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-Flang">
+  Flang
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-Cray" name="Cray" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Cray" type="button" role="tab" aria-controls="nav-tabpanel-1-Cray" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-Cray">
+  Cray
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-1" class="tab-content">
+<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-GFortran">
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-1-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Intel">
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-1-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Flang">
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-1-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Cray">
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">ftn</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">./variables</span></span></code></pre>
+</div>
+<p>The output below is from the GNU gfortran compiled executable:</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>  -922534656
+   0.00000000
+        (2.063298560E+11,0.00000000)
+ T</code></pre>
+</div>
+<p>Where did those values come from? If you forget to assign a value to
+a variable the output will depend on your compiler. Here the program
+accessed the memory allocated for each variable and printed what was
+leftover in the memory from other processes.</p>
+<p>Most compilers have a flag which warns you if there are uninitialised
+variables in your code. Have a look and see if there is a flag like this
+for your compiler.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Style </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div class="accordion-body">
+<ul>
+<li>Fortran is case-insensitive. This course prefers the use of
+lowercase.</li>
+<li>Fortran file names must match the name of the program or module
+contained in the file. ie. <code>variables.f90</code> contains the
+program <code>variables</code>. <code>matrix_mod.f90</code> contains the
+module <code>matrix_mod</code>.</li>
+<li>
+<code>::</code> markers should be aligned to improve
+readability.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="variable-assignment">Variable Assignment<a class="anchor" aria-label="anchor" href="#variable-assignment"></a>
+</h2>
+<hr class="half-width">
+<p>Variables are assigned using the assignment operator
+<code>=</code>:</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="op">&lt;</span>variable<span class="op">&gt;</span> <span class="kw">=</span> <span class="op">&lt;</span>value<span class="op">&gt;</span></span></code></pre>
+</div>
+<p>For example:</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>number_of_pelicans          <span class="kw">=</span> <span class="dv">5</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>pelican_weight              <span class="kw">=</span> <span class="fl">2.5</span>  <span class="co">! kg</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2</span>, <span class="fl">0.9</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>is_young_pelican            <span class="kw">=</span> <span class="cn">.false.</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>pelican_tag                 <span class="kw">=</span> <span class="st">'Jeff'</span></span></code></pre>
+</div>
+<p>Logicals can be <code>.true.</code> or <code>.false.</code>.
+Characters (strings) such as <code>pelican_tag</code> can be surrounded
+by single or double quotes.</p>
+<div id="modify-your-variables-program" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="modify-your-variables-program" class="callout-inner">
+<h3 class="callout-title">Modify your <code>variables</code>
+program</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal">
+<li>Assign values to the variables in your program.</li>
+<li>Compile and run your program.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">program</span> variables</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>    <span class="dt">integer</span>   <span class="dt">::</span> number_of_pelicans</span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>    <span class="dt">real</span>      <span class="dt">::</span> pelican_weight</span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>    <span class="dt">complex</span>   <span class="dt">::</span> pelican_population_dynamics</span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>    <span class="dt">logical</span>   <span class="dt">::</span> is_young_pelican</span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>    <span class="dt">character</span> <span class="dt">::</span> pelican_tag</span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a>    number_of_pelicans          <span class="kw">=</span> <span class="dv">5</span></span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a>    pelican_weight              <span class="kw">=</span> <span class="fl">2.5</span>  <span class="co">! kg</span></span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a>    pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2</span>, <span class="fl">0.9</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a>    is_young_pelican            <span class="kw">=</span> <span class="cn">.false.</span></span>
+<span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a>    pelican_tag                 <span class="kw">=</span> <span class="st">'J'</span></span>
+<span id="cb12-16"><a href="#cb12-16" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, number_of_pelicans</span>
+<span id="cb12-18"><a href="#cb12-18" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_weight</span>
+<span id="cb12-19"><a href="#cb12-19" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_population_dynamics</span>
+<span id="cb12-20"><a href="#cb12-20" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, is_young_pelican</span>
+<span id="cb12-21"><a href="#cb12-21" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_tag</span>
+<span id="cb12-22"><a href="#cb12-22" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" tabindex="-1"></a><span class="kw">end program</span> variables</span></code></pre>
+</div>
+<div class="tabs">
+<nav><div id="nav-tab-2" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-2-GFortran" name="GFortran" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-GFortran" type="button" role="tab" aria-controls="nav-tabpanel-2-GFortran" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-2-GFortran">
+  GFortran
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-2-Intel" name="Intel" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-Intel" type="button" role="tab" aria-controls="nav-tabpanel-2-Intel" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-2-Intel">
+  Intel
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-2-Flang" name="Flang" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-Flang" type="button" role="tab" aria-controls="nav-tabpanel-2-Flang" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-2-Flang">
+  Flang
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-2-Cray" name="Cray" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-Cray" type="button" role="tab" aria-controls="nav-tabpanel-2-Cray" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-2-Cray">
+  Cray
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-2" class="tab-content">
+<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-GFortran">
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-2-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Intel">
+<div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-2-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Flang">
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-2-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Cray">
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">ftn</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">./variables</span></span></code></pre>
+</div>
+<p>Example output:</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>           5
+   2.50000000
+           (-1.20000005,0.899999976)
+ F
+ J</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
+  <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Style </h3>
+</button>
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div class="accordion-body">
+<ul>
+<li>The assignment operator <code>=</code> should be aligned to improve
+readability.</li>
+<li>Variable names are written in snake case and are verbose.</li>
+<li>Variables with units must have a comment (Ford or vanilla Fortran
+style) with the unit.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="assignment-on-declaration" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<div id="assignment-on-declaration" class="callout-inner">
+<h3 class="callout-title">Assignment on declaration</h3>
+<div class="callout-content">
+<p>Fortran lets you assign a value to a variable when you declare
+it.</p>
+<div class="codewrapper sourceCode" id="cb19">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="dt">integer</span> <span class="dt">::</span> number_of_pelicans <span class="kw">=</span> <span class="dv">5</span></span></code></pre>
+</div>
+<p>This gives the variable the <code>save</code> attribute. With
+<code>save</code> the variable will keep its value between procedure
+(function) calls. This is not good practice. Never assign a value to a
+variable on declaration unless it’s a parameter.</p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a>
+</h2>
+<hr class="half-width">
+<p>In your program, it is possible to change the values of initialised
+variables, e.g.</p>
+<div class="codewrapper sourceCode" id="cb20">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">program</span> variables</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a>    <span class="dt">integer</span>   <span class="dt">::</span> number_of_pelicans</span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a>    <span class="dt">real</span>      <span class="dt">::</span> pelican_weight</span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a>    <span class="dt">complex</span>   <span class="dt">::</span> pelican_population_dynamics</span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a>    <span class="dt">logical</span>   <span class="dt">::</span> is_young_pelican</span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a>    <span class="dt">character</span> <span class="dt">::</span> pelican_tag</span>
+<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a>    number_of_pelicans          <span class="kw">=</span> <span class="dv">5</span></span>
+<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a>    pelican_weight              <span class="kw">=</span> <span class="fl">2.5</span>  <span class="co">! kg</span></span>
+<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a>    pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2</span>, <span class="fl">0.9</span>)</span>
+<span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a>    is_young_pelican            <span class="kw">=</span> <span class="cn">.false.</span></span>
+<span id="cb20-15"><a href="#cb20-15" tabindex="-1"></a>    pelican_tag                 <span class="kw">=</span> <span class="st">'J'</span></span>
+<span id="cb20-16"><a href="#cb20-16" tabindex="-1"></a></span>
+<span id="cb20-17"><a href="#cb20-17" tabindex="-1"></a>    <span class="co">! print *, number_of_pelicans</span></span>
+<span id="cb20-18"><a href="#cb20-18" tabindex="-1"></a>    <span class="co">! print *, pelican_weight</span></span>
+<span id="cb20-19"><a href="#cb20-19" tabindex="-1"></a>    <span class="co">! print *, pelican_population_dynamics</span></span>
+<span id="cb20-20"><a href="#cb20-20" tabindex="-1"></a>    <span class="co">! print *, is_young_pelican</span></span>
+<span id="cb20-21"><a href="#cb20-21" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_tag</span>
+<span id="cb20-22"><a href="#cb20-22" tabindex="-1"></a></span>
+<span id="cb20-23"><a href="#cb20-23" tabindex="-1"></a>    <span class="co">! Changing the value of the tag</span></span>
+<span id="cb20-24"><a href="#cb20-24" tabindex="-1"></a>    pelican_tag <span class="kw">=</span> <span class="st">'F'</span></span>
+<span id="cb20-25"><a href="#cb20-25" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_tag</span>
+<span id="cb20-26"><a href="#cb20-26" tabindex="-1"></a></span>
+<span id="cb20-27"><a href="#cb20-27" tabindex="-1"></a><span class="kw">end program</span> variables</span></code></pre>
+</div>
+<p>This will now give the output:</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span> <span class="va">J</span></span>
+<span> <span class="cn">F</span>   </span></code></pre>
+</div>
+<p>However, you can also define constant values that cannot change. You
+do this by defining variables using <code>parameter</code>. We are then
+unable to modify <code>parameter</code> variables, e.g.</p>
+<div class="codewrapper sourceCode" id="cb22">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="co">character, parameter :: pelican_tag = 'J'</span></span></code></pre>
+</div>
+<div id="add-a-parameter-to-your-variables-program" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="add-a-parameter-to-your-variables-program" class="callout-inner">
+<h3 class="callout-title">Add a parameter to your <code>variables</code>
+program</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal">
+<li>Modify a variable in your code to be a parameter.</li>
+<li>Try modifying the parameter in your code. What output do you get
+when compiling?</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="kw">program</span> variables</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>    <span class="dt">integer</span> <span class="dt">::</span> number_of_pelicans</span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a>    <span class="dt">real</span>    <span class="dt">::</span> pelican_weight</span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a>    <span class="dt">complex</span> <span class="dt">::</span> pelican_population_dynamics</span>
+<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a>    <span class="dt">logical</span> <span class="dt">::</span> is_young_pelican</span>
+<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a>    </span>
+<span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a>    <span class="dt">character</span>, <span class="dt">parameter</span> <span class="dt">::</span> pelican_tag <span class="kw">=</span> <span class="st">'J'</span></span>
+<span id="cb23-11"><a href="#cb23-11" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="#cb23-12" tabindex="-1"></a>    number_of_pelicans          <span class="kw">=</span> <span class="dv">5</span></span>
+<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a>    pelican_weight              <span class="kw">=</span> <span class="fl">2.5</span>  <span class="co">! kg</span></span>
+<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a>    pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2</span>, <span class="fl">0.9</span>)</span>
+<span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a>    is_young_pelican            <span class="kw">=</span> <span class="cn">.false.</span></span>
+<span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a>    <span class="co">! pelican_tag               = 'J'</span></span>
+<span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, number_of_pelicans</span>
+<span id="cb23-19"><a href="#cb23-19" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_weight</span>
+<span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_population_dynamics</span>
+<span id="cb23-21"><a href="#cb23-21" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, is_young_pelican</span>
+<span id="cb23-22"><a href="#cb23-22" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_tag</span>
+<span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a></span>
+<span id="cb23-24"><a href="#cb23-24" tabindex="-1"></a>    pelican_tag <span class="kw">=</span> <span class="st">'F'</span></span>
+<span id="cb23-25"><a href="#cb23-25" tabindex="-1"></a></span>
+<span id="cb23-26"><a href="#cb23-26" tabindex="-1"></a><span class="kw">end program</span> variables</span></code></pre>
+</div>
+<p>Here we have modified <code>pelican_tag</code> to be the parameter.
+Then at the end of the program we attempt to change its value.</p>
+<p>Example GFortran output:</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>variables.f90:23:4:
+
+   23 |     pelican_tag = 'F'
+      |    1
+Error: Named constant ‘pelican_tag’ in variable definition context (assignment) at (1)</code></pre>
+</div>
+<p>The compiler has given us an error. This is because we are trying to
+edit the value, <code>variable definition context (assignment)</code>,
+of a parameter, <code>Named constant</code>. The error is in the
+<code>variables.f90</code> file, on line <code>23</code>, starting at
+character <code>4</code>. This location has been marked as
+<code>1</code> in the compiler output.</p>
+<p>Different compilers will show different error messages. Some have
+clearer messages for certain errors than others. We recommend testing
+code with <strong>at least</strong> two compilers. This will aid your
+debugging and help make your code more portable.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tidy-up-your-program" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="tidy-up-your-program" class="callout-inner">
+<h3 class="callout-title">Tidy up your program</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal">
+<li>Make sure your code conforms to the style followed by this
+course.</li>
+<li>Add Ford comments to document the program and each variable.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb25">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="kw">program</span> variables</span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>    <span class="co">!! A test program to lean how to declare and assign variables.</span></span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a>    <span class="dt">integer</span> <span class="dt">::</span> number_of_pelicans</span>
+<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a>      <span class="co">!! The number of pelicans in the pod</span></span>
+<span id="cb25-8"><a href="#cb25-8" tabindex="-1"></a>    <span class="dt">real</span>    <span class="dt">::</span> pelican_weight</span>
+<span id="cb25-9"><a href="#cb25-9" tabindex="-1"></a>      <span class="co">!! The average weight of a pelican in the pod / kg</span></span>
+<span id="cb25-10"><a href="#cb25-10" tabindex="-1"></a>    <span class="dt">complex</span> <span class="dt">::</span> pelican_population_dynamics</span>
+<span id="cb25-11"><a href="#cb25-11" tabindex="-1"></a>      <span class="co">!! The birth and death rate as a complex number</span></span>
+<span id="cb25-12"><a href="#cb25-12" tabindex="-1"></a>      <span class="co">!! Units are the number of pelicans per year</span></span>
+<span id="cb25-13"><a href="#cb25-13" tabindex="-1"></a>    <span class="dt">logical</span> <span class="dt">::</span> is_young_pelican</span>
+<span id="cb25-14"><a href="#cb25-14" tabindex="-1"></a>      <span class="co">!! Test to see if the current pelican is young</span></span>
+<span id="cb25-15"><a href="#cb25-15" tabindex="-1"></a></span>
+<span id="cb25-16"><a href="#cb25-16" tabindex="-1"></a>    <span class="dt">character</span>, <span class="dt">parameter</span> <span class="dt">::</span> pelican_tag <span class="kw">=</span> <span class="st">'J'</span></span>
+<span id="cb25-17"><a href="#cb25-17" tabindex="-1"></a>      <span class="co">!! Pelican pod tracking tag</span></span>
+<span id="cb25-18"><a href="#cb25-18" tabindex="-1"></a></span>
+<span id="cb25-19"><a href="#cb25-19" tabindex="-1"></a>    number_of_pelicans          <span class="kw">=</span> <span class="dv">5</span></span>
+<span id="cb25-20"><a href="#cb25-20" tabindex="-1"></a>    pelican_weight              <span class="kw">=</span> <span class="fl">2.5</span>          <span class="co">! kg</span></span>
+<span id="cb25-21"><a href="#cb25-21" tabindex="-1"></a>    pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2</span>, <span class="fl">0.9</span>)  <span class="co">! births, deaths per year</span></span>
+<span id="cb25-22"><a href="#cb25-22" tabindex="-1"></a>    is_young_pelican            <span class="kw">=</span> <span class="cn">.false.</span></span>
+<span id="cb25-23"><a href="#cb25-23" tabindex="-1"></a></span>
+<span id="cb25-24"><a href="#cb25-24" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, number_of_pelicans</span>
+<span id="cb25-25"><a href="#cb25-25" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_weight</span>
+<span id="cb25-26"><a href="#cb25-26" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_population_dynamics</span>
+<span id="cb25-27"><a href="#cb25-27" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, is_young_pelican</span>
+<span id="cb25-28"><a href="#cb25-28" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, pelican_tag</span>
+<span id="cb25-29"><a href="#cb25-29" tabindex="-1"></a></span>
+<span id="cb25-30"><a href="#cb25-30" tabindex="-1"></a><span class="kw">end program</span> variables</span></code></pre>
+</div>
+<p>Notice we have left an extra blank line in-between the parameter
+declaration and the other variable declarations. This is so we didn’t
+have to align all the <code>::</code> markers far to the right. If you
+are declaring lots of variables, break up the declarations into sections
+for readability.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points</h3>
+<div class="callout-content">
+<ul>
+<li>There are 5 intrinsic data types for Fortran variables:
+<code>integer</code>, <code>real</code>, <code>complex</code>,
+<code>logical</code>, and <code>character</code>.</li>
+<li>Fortran variables are declared with the syntax:
+<code>&lt;variable_type&gt; :: &lt;variable_name&gt;</code>
+</li>
+<li>Assign a value to a variable with the syntax:
+<code>&lt;variable&gt; = &lt;value&gt;</code>
+</li>
+<li>Never assign a value on the same line as a variable is declared.
+This gives the variable the <code>save</code> attribute.</li>
+<li>Parameters are variables whose value can’t be changed:
+<code>&lt;variable_type&gt;, parameter :: &lt;variable_name&gt; = &lt;variable_value&gt;</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ -->
+</section><div class="footnotes footnotes-end-of-document">
+<hr>
+<ol>
+<li id="fn1"><p>Fortran is also <strong><em>statically
+typed</em></strong>. You can not change a variables type after the
+variable declaration.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div></section><section id="aio-02-basics-maths"><p>Content from <a href="02-basics-maths.html">Maths</a></p>
+<hr>
+<p>Last updated on 2025-04-25 |
+
+        <a href="https://github.com/astroDimitrios/intro-to-modern-fortran/edit/main/episodes/02-basics-maths.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How do we perform calculations in Fortran?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Use the built in operators and intrinsic functions.</li>
+<li>Specify the precision of our numeric variables.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>In this episode we will look at arithmetic with Fortran. Arithmetic
+operations are where Fortran shines. Fortran is much faster than Python,
+Matlab and other interpreted languages. Good Fortran code will be
+comparable in speed, perhaps faster, than equivalent C/C++ code
+depending on your compiler and optimisations. To provide a good starting
+point for this episode complete the challenge below.</p>
+<div id="create-a-maths-fortran-program" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="create-a-maths-fortran-program" class="callout-inner">
+<h3 class="callout-title">Create a <code>maths</code> Fortran
+program</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal">
+<li>Create a new Fortran program <code>maths.f90</code>.</li>
+<li>Define a real parameter <code>pi</code>.</li>
+<li>Print the value of <code>pi</code>.</li>
+<li>Check your program compiles and runs.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">program</span> maths</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>    <span class="co">!! Test program to demonstrate Fortran arithmetic</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>    <span class="dt">real</span>, <span class="dt">parameter</span> <span class="dt">::</span> pi <span class="kw">=</span> <span class="fl">3.141592654</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>      <span class="co">!! Value of pi</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, <span class="st">'Pi = '</span>, pi</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="kw">end program</span> maths</span></code></pre>
+</div>
+<p>Notice the print statement outputs the string <code>'Pi = '</code>
+before printing the value of <code>pi</code> on the same line.</p>
+<div class="tabs">
+<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-1-GFortran" name="GFortran" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-GFortran" type="button" role="tab" aria-controls="nav-tabpanel-1-GFortran" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-1-GFortran">
+  GFortran
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-Intel" name="Intel" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Intel" type="button" role="tab" aria-controls="nav-tabpanel-1-Intel" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-Intel">
+  Intel
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-Flang" name="Flang" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Flang" type="button" role="tab" aria-controls="nav-tabpanel-1-Flang" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-Flang">
+  Flang
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-Cray" name="Cray" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Cray" type="button" role="tab" aria-controls="nav-tabpanel-1-Cray" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-Cray">
+  Cray
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-1" class="tab-content">
+<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-1-GFortran" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-1-Intel" class="tab-pane" aria-labelledby="nav-tab-1-Intel" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-1-Flang" class="tab-pane" aria-labelledby="nav-tab-1-Flang" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-1-Cray" class="tab-pane" aria-labelledby="nav-tab-1-Cray" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">ftn</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">./maths</span></span></code></pre>
+</div>
+<p>Example output:</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span>   <span class="fl">3.14159274</span></span></code></pre>
+</div>
+<p>This is slightly different to the value we coded. We will discuss why
+in the <a href="./02-basics-maths.html#kinds"><code>kinds</code>
+section</a> of this episode.</p>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="operators-intrinsics">Operators &amp; Intrinsics<a class="anchor" aria-label="anchor" href="#operators-intrinsics"></a>
+</h2>
+<hr class="half-width">
+<p>The usual operators are available in Fortran:</p>
+<table class="table">
+<thead><tr class="header">
+<th>Operator</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>**</code></td>
+<td>Exponent</td>
+</tr>
+<tr class="even">
+<td><code>*</code></td>
+<td>Multiplication</td>
+</tr>
+<tr class="odd">
+<td><code>/</code></td>
+<td>Division</td>
+</tr>
+<tr class="even">
+<td><code>+</code></td>
+<td>Addition</td>
+</tr>
+<tr class="odd">
+<td><code>-</code></td>
+<td>Subtraction</td>
+</tr>
+</tbody>
+</table>
+<p>They are listed in order of precedence. Fortran also has a number of
+<a href="https://fortran-lang.org/learn/intrinsics/math/" class="external-link">intrinsic
+maths functions</a>.</p>
+<div id="calculate-the-area-of-a-circle-with-radius-5-cm" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="calculate-the-area-of-a-circle-with-radius-5-cm" class="callout-inner">
+<h3 class="callout-title">Calculate the area of a circle with radius 5 cm</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal">
+<li>Add two new real variables for the <code>radius</code> and
+<code>area</code> to your program.</li>
+<li>Print the value of <code>radius</code> and <code>area</code>.</li>
+<li>Calculate the area of the circle using <span class="math inline">\(\pi r^2\)</span>.</li>
+<li>Check your program compiles and runs.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">program</span> maths</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>    <span class="co">!! Test program to demonstrate Fortran arithmetic</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>    <span class="dt">real</span>, <span class="dt">parameter</span> <span class="dt">::</span> pi <span class="kw">=</span> <span class="fl">3.141592654</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>      <span class="co">!! Value of pi</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>    </span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>    <span class="dt">real</span> <span class="dt">::</span> radius</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>      <span class="co">!! Radius of the circle in cm</span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>    <span class="dt">real</span> <span class="dt">::</span> area</span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>      <span class="co">!! Area of the circle in cm</span></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>    radius <span class="kw">=</span> <span class="fl">5.0</span>  <span class="co">! cm</span></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>    area <span class="kw">=</span> pi <span class="kw">*</span> radius<span class="kw">**</span><span class="dv">2</span> </span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, <span class="st">'Pi = '</span>, pi</span>
+<span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, <span class="st">'Radius = '</span>, radius, <span class="st">' cm'</span></span>
+<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, <span class="st">'Area = '</span>, area, <span class="st">' cm^2'</span></span>
+<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a><span class="kw">end program</span> maths</span></code></pre>
+</div>
+<div class="tabs">
+<nav><div id="nav-tab-2" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-2-GFortran" name="GFortran" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-GFortran" type="button" role="tab" aria-controls="nav-tabpanel-2-GFortran" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-2-GFortran">
+  GFortran
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-2-Intel" name="Intel" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-Intel" type="button" role="tab" aria-controls="nav-tabpanel-2-Intel" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-2-Intel">
+  Intel
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-2-Flang" name="Flang" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-Flang" type="button" role="tab" aria-controls="nav-tabpanel-2-Flang" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-2-Flang">
+  Flang
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-2-Cray" name="Cray" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-Cray" type="button" role="tab" aria-controls="nav-tabpanel-2-Cray" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-2-Cray">
+  Cray
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-2" class="tab-content">
+<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-2-GFortran" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-2-Intel" class="tab-pane" aria-labelledby="nav-tab-2-Intel" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-2-Flang" class="tab-pane" aria-labelledby="nav-tab-2-Flang" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-2-Cray" class="tab-pane" aria-labelledby="nav-tab-2-Cray" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">ftn</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">./maths</span></span></code></pre>
+</div>
+<p>Example output:</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code> Pi =    3.14159274
+ Radius =    5.00000000      cm
+ Area =    78.5398178      cm^2</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="kinds">Kinds<a class="anchor" aria-label="anchor" href="#kinds"></a>
+</h2>
+<hr class="half-width">
+<p>Numeric types such as <code>integer</code>, <code>real</code>, and
+<code>complex</code> can have different floating-point precisions. This
+is commonly 32 or 64-bit precision. We can specify the precision using
+<strong>kind</strong> parameters. There are two common ways to specify
+<strong>kind</strong> parameters:</p>
+<div class="tabs">
+<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-1-1" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-1" type="button" role="tab" aria-controls="nav-tabpanel-1-1" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-1-1">
+  Using iso_fortran_env
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-2" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-2" type="button" role="tab" aria-controls="nav-tabpanel-1-2" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-2">
+  Using intrinsic functions
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-1" class="tab-content">
+<div id="nav-tabpanel-1-1" class="tab-pane show active" aria-labelledby="nav-tab-1-1" role="tabpanel">
+<p>We will be using <code>iso_fortran_env</code> throughout this lesson.
+<code>iso_fortran_env</code> is an intrinsic Fortran module. It was
+introduced in the F2008 standard.</p>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co">! This goes after the program statement</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="co">! We will cover modules in a later episode</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="kw">use</span>, <span class="kw">intrinsic</span> <span class="dt">::</span> iso_fortran_env, <span class="kw">only</span>: r_32 <span class="kw">=</span><span class="op">&gt;</span> real32, r_64 <span class="kw">=</span><span class="op">&gt;</span> real64</span></code></pre>
+</div>
+<p>These parameters are then used when declaring variables:</p>
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="dt">real(kind=r_32)</span>, <span class="dt">parameter</span> <span class="dt">::</span> earth_radius <span class="kw">=</span> <span class="dv">6371_r_32</span>  <span class="co">! km - single precision</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="dt">real(kind=r_64)</span>            <span class="dt">::</span> current_distance_from_sun <span class="co">! Au - double precision</span></span></code></pre>
+</div>
+<p>and when assigning values to variables:</p>
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="co">current_distance_from_sun = 1.3_r_64</span></span></code></pre>
+</div>
+</div>
+<div id="nav-tabpanel-1-2" class="tab-pane" aria-labelledby="nav-tab-1-2" role="tabpanel">
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="co">! hardware specific 32 bit real</span></span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="dt">integer</span>, <span class="dt">parameter</span> <span class="dt">::</span> r_32 <span class="kw">=</span> <span class="fu">selected_real_kind</span>(<span class="dv">6</span>, <span class="dv">37</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="co">! hardware specific 64 bit real</span></span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="dt">integer</span>, <span class="dt">parameter</span> <span class="dt">::</span> r_64 <span class="kw">=</span> <span class="fu">selected_real_kind</span>(<span class="dv">15</span>, <span class="dv">307</span>)</span></code></pre>
+</div>
+<p>These parameters are then used when declaring variables:</p>
+<div class="codewrapper sourceCode" id="cb19">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="dt">real(kind=r_32)</span>, <span class="dt">parameter</span> <span class="dt">::</span> earth_radius <span class="kw">=</span> <span class="dv">6371_r_32</span>  <span class="co">! km</span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="dt">real(kind=r_64)</span>            <span class="dt">::</span> current_distance_from_sun <span class="co">! Au </span></span></code></pre>
+</div>
+<p>and when assigning values to variables:</p>
+<div class="codewrapper sourceCode" id="cb20">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="co">current_distance_from_sun = 1.3_r_64</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="fortran-defaults-to-single-precision" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<div id="fortran-defaults-to-single-precision" class="callout-inner">
+<h3 class="callout-title">Fortran defaults to single precision</h3>
+<div class="callout-content">
+<p>Fortran differs from other languages. The default precision for reals
+is single.</p>
+<div class="codewrapper sourceCode" id="cb21">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">use</span>, <span class="kw">intrinsic</span> <span class="dt">::</span> iso_fortran_env, <span class="kw">only</span>: r_64 <span class="kw">=</span><span class="op">&gt;</span> real64</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="dt">real(kind=r_64)</span> <span class="dt">::</span> current_distance_from_sun <span class="co">! Au </span></span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="co">current_distance_from_sun = 1.3       ! no kind suffix - this is single precision</span></span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="co">current_distance_from_sun = 1.3_r_64  ! double precision</span></span></code></pre>
+</div>
+<p><strong>Always</strong> use a kind suffix for real and integer
+types.</p>
+</div>
+</div>
+</div>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Style </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div class="accordion-body">
+<p>You can omit the <code>kind=</code>:</p>
+<div class="codewrapper sourceCode" id="cb22">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="dt">real(kind=r_64)</span></span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="co">! is the same as</span></span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="dt">real(r_64)</span></span></code></pre>
+</div>
+<p>In this lesson we prefer explicitly stating <code>kind=</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
+  <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Legacy </h3>
+</button>
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div class="accordion-body">
+<p>You might see variables declared as:</p>
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fl">15d00</span>      <span class="co">! 15.00</span></span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="fl">9.375d-11</span>  <span class="co">! 9.375E-11</span></span></code></pre>
+</div>
+<p>The <code>d</code> here specifies the reals as double precision.</p>
+<p>You might also see variables with kinds which are plain integers:</p>
+<div class="codewrapper sourceCode" id="cb24">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="dt">real(8)</span></span></code></pre>
+</div>
+<p>Some information on this older style is available in the <a href="https://gcc.gnu.org/onlinedocs/gfortran/KIND-Type-Parameters.html" class="external-link">gfortran
+docs</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="specify-the-precision-in-your-program" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="specify-the-precision-in-your-program" class="callout-inner">
+<h3 class="callout-title">Specify the precision in your program</h3>
+<div class="callout-content">
+<p>Update your <code>maths.f90</code> program to specify the real kind
+as <code>real64</code>. Note the output <strong>before</strong> and
+<strong>after</strong> you modify the precision. How has the output
+changed?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
+<pre class="fortran">
+<code>
+program maths
+    !! Test program to demonstrate Fortran arithmetic
+
+    <mark>use, intrinsic :: iso_fortran_env, only: r_64 =&gt; real64</mark>
+
+    implicit none
+
+    <mark>real(kind=r_64)</mark>, parameter :: pi = 3.141592654_r_64
+      !! Value of pi
+
+    <mark>real(kind=r_64)</mark> :: radius
+      !! Radius of the circle in cm
+    <mark>real(kind=r_64)</mark> :: area
+      !! Area of the circle in cm
+
+    ! this float must be written as 5.0 (sometimes seen as 5.)
+    ! not 5 on its own without the decimal point
+    radius = 5.0_r_64  ! cm
+    area = pi * radius**2
+
+    print *, 'Pi = ', pi
+    print *, 'Radius = ', radius, ' cm'
+    print *, 'Area = ', area, ' cm^2'
+
+end program maths
+
+</code>
+</pre>
+<p>Example output before (32 bit single precision):</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Pi =    3.14159274
+Radius =    5.00000000      cm
+Area =    78.5398178      cm^2</code></pre>
+</div>
+<p>Example output after (64 bit double precision):</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Pi =    3.1415926540000001
+Radius =    5.0000000000000000       cm
+Area =    78.539816349999995       cm^2</code></pre>
+</div>
+<p>The value of pi now accurately reflects the value you coded in the
+program. The value of the area is also now more accurate.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="lennard-jones-potential" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="lennard-jones-potential" class="callout-inner">
+<h3 class="callout-title">Lennard-Jones Potential</h3>
+<div class="callout-content">
+<p>Create a new program to calculate the <a href="https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Physical_Properties_of_Matter/Atomic_and_Molecular_Properties/Intermolecular_Forces/Specific_Interactions/Lennard-Jones_Potential" class="external-link">Lennard-Jones
+Potential</a> for two Xenon atoms. They are separated by 4.0 Angstroms.
+Approximate the potential using:</p>
+<p><span class="math display">\[V(r)=4\epsilon\left[\left(\frac{\sigma}{r}\right)^{12}-\left(\frac{\sigma}{r}\right)^{6}\right]\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\epsilon=0.997\ kJ/mol\)</span></li>
+<li><span class="math inline">\(\sigma=3.40\ Angstroms\)</span></li>
+<li><span class="math inline">\(r=4.0\ Angstroms\)</span></li>
+</ul>
+<p>Print the value at the end of your program.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div class="accordion-body">
+<p>In the file <code>lennard_jones_potential.f90</code>:</p>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="kw">program</span> lennard_jones_potential</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>    <span class="co">!! Calculates the Lennard-Jones Potential for 2 Xenon atoms</span></span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a>    <span class="kw">use</span>, <span class="kw">intrinsic</span> <span class="dt">::</span> iso_fortran_env, <span class="kw">only</span>: i_64 <span class="kw">=</span><span class="op">&gt;</span> int64, r_64 <span class="kw">=</span><span class="op">&gt;</span> real64</span>
+<span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb27-7"><a href="#cb27-7" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span>,    <span class="dt">parameter</span> <span class="dt">::</span> <span class="fu">epsilon</span> <span class="kw">=</span> <span class="fl">0.997_r_64</span>  <span class="co">! kJ/mol</span></span>
+<span id="cb27-9"><a href="#cb27-9" tabindex="-1"></a>      <span class="co">!! well depth kJ/mol</span></span>
+<span id="cb27-10"><a href="#cb27-10" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span>,    <span class="dt">parameter</span> <span class="dt">::</span> sigma <span class="kw">=</span> <span class="fl">3.40_r_64</span>     <span class="co">! Angstroms</span></span>
+<span id="cb27-11"><a href="#cb27-11" tabindex="-1"></a>      <span class="co">!! van der Waals radius Angstroms</span></span>
+<span id="cb27-12"><a href="#cb27-12" tabindex="-1"></a>    <span class="dt">integer(kind=i_64)</span>, <span class="dt">parameter</span> <span class="dt">::</span> lj_potential_const <span class="kw">=</span> <span class="dv">4_i_64</span></span>
+<span id="cb27-13"><a href="#cb27-13" tabindex="-1"></a>      <span class="co">!! unit-less Lennard-Jones Potential constant</span></span>
+<span id="cb27-14"><a href="#cb27-14" tabindex="-1"></a>    </span>
+<span id="cb27-15"><a href="#cb27-15" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span> <span class="dt">::</span> separation_distance</span>
+<span id="cb27-16"><a href="#cb27-16" tabindex="-1"></a>      <span class="co">!! separation distance r in Angstroms</span></span>
+<span id="cb27-17"><a href="#cb27-17" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span> <span class="dt">::</span> lj_potential</span>
+<span id="cb27-18"><a href="#cb27-18" tabindex="-1"></a>      <span class="co">!! Lennard-Jones Potential kJ/mol</span></span>
+<span id="cb27-19"><a href="#cb27-19" tabindex="-1"></a></span>
+<span id="cb27-20"><a href="#cb27-20" tabindex="-1"></a>    separation_distance <span class="kw">=</span> <span class="fl">4.0_r_64</span>  <span class="co">! Angstroms</span></span>
+<span id="cb27-21"><a href="#cb27-21" tabindex="-1"></a></span>
+<span id="cb27-22"><a href="#cb27-22" tabindex="-1"></a>    <span class="co">! Calculate the Lennard-Jones Potential using:</span></span>
+<span id="cb27-23"><a href="#cb27-23" tabindex="-1"></a>    <span class="co">! V(r) = 4*epsilon*[(sigma/r)**12 - (sigma/r)**6]</span></span>
+<span id="cb27-24"><a href="#cb27-24" tabindex="-1"></a>    lj_potential <span class="kw">=</span> lj_potential_const <span class="kw">*</span> <span class="fu">epsilon</span> <span class="kw">*</span> <span class="kw">&amp;</span></span>
+<span id="cb27-25"><a href="#cb27-25" tabindex="-1"></a>                   ((sigma<span class="kw">/</span>separation_distance)<span class="kw">**</span><span class="dv">12</span> <span class="kw">&amp;</span></span>
+<span id="cb27-26"><a href="#cb27-26" tabindex="-1"></a>                   <span class="kw">-</span> (sigma<span class="kw">/</span>separation_distance)<span class="kw">**</span><span class="dv">6</span>)</span>
+<span id="cb27-27"><a href="#cb27-27" tabindex="-1"></a></span>
+<span id="cb27-28"><a href="#cb27-28" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, <span class="st">'V(4.0 Angstrom) = '</span>, lj_potential, <span class="st">' kJ/mol'</span></span>
+<span id="cb27-29"><a href="#cb27-29" tabindex="-1"></a></span>
+<span id="cb27-30"><a href="#cb27-30" tabindex="-1"></a><span class="kw">end program</span> lennard_jones_potential</span></code></pre>
+</div>
+<p>Note:</p>
+<ul>
+<li>We couldn’t name the <code>lj_potential</code> variable
+<code>lennard_jones_potential</code> since that’s the program name. Try
+changing it to be the same as the program name. What compiler error do
+you get?</li>
+<li>We’ve used verbose names for all variables. This is good practice
+since using single character maths related variable names makes code
+harder to read. This does mean that the formula on one line would break
+the 80 character line limit in our style guide. To get around this the
+formula has been split over multiple lines using the continuation marker
+<code>&amp;</code>.</li>
+<li>The constant <code>lj_potential_const</code> has been defined as a
+variable. This avoids <a href="https://en.wikipedia.org/wiki/Magic_number_(programming)" class="external-link">magic
+numbers</a> in our code.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="type-casting-mixed-precision">Type Casting &amp; Mixed Precision<a class="anchor" aria-label="anchor" href="#type-casting-mixed-precision"></a>
+</h3>
+<p>Take a look at the calculation of <code>lj_potential</code> (from the
+challenge above). What kinds are each of the variables in the
+equation?</p>
+<div class="codewrapper sourceCode" id="cb28">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>lj_potential <span class="kw">=</span> lj_potential_const <span class="kw">*</span> <span class="fu">epsilon</span> <span class="kw">*</span> <span class="kw">&amp;</span></span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>                   ((sigma<span class="kw">/</span>separation_distance)<span class="kw">**</span><span class="dv">12</span> <span class="kw">&amp;</span></span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>                   <span class="kw">-</span> (sigma<span class="kw">/</span>separation_distance)<span class="kw">**</span><span class="dv">6</span>)</span></code></pre>
+</div>
+<p>The value we are calculating is a 64 bit real
+(<code>lj_potential</code>). The first variable in the equation is a 64
+bit integer (<code>lj_potential_const</code>). The compiler will
+<strong><em>cast</em></strong> the integer to a 64 bit real before using
+it in the multiplication.</p>
+<p>In this program the casting only occurs once. Doing this casting many
+times can slow a program down. To remove this implicit casting we
+can:</p>
+<ul>
+<li>
+<p>cast <code>lj_potential_const</code> to a real explicitly before
+the calculation.</p>
+<div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a>lj_potential_const_real <span class="kw">=</span> <span class="dt">real(lj_potential_const, r_64)</span></span></code></pre>
+</div>
+<p>We would also have to define the new real variable
+<code>lj_potential_const_real</code>.</p>
+</li>
+<li>
+<p>declare the constant as a real to start with. This is the
+simplest solution which avoids casting.</p>
+<div class="codewrapper sourceCode" id="cb30">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="dt">real(kind=r_64)</span>, <span class="dt">parameter</span> <span class="dt">::</span> lj_potential_const <span class="kw">=</span> <span class="fl">4.0_r_64</span></span></code></pre>
+</div>
+</li>
+</ul>
+<p>This program uses mixed kinds in its arithmetic. Some programs have
+mixed precision as well. i.e. 32 bit integers in an equation with 64 bit
+integers. In this case the 32 bit integers are promoted to 64 bit by the
+compiler before use. It is best to avoid implicit conversions like this
+by being consistent with your precision.</p>
+<div id="challenge5" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal">
+<li>Find your compiler documentation. Is there a flag that warns you
+about implicit conversions / kind casting? If there is, compile your
+program with the flag. What warning do you get?</li>
+<li>Modify your solution to the last challenge to remove any kind
+casting.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
+</button>
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div class="accordion-body">
+<ol style="list-style-type: decimal">
+<li>
+<p>For gfortran there are two flags we can use. These are taken from
+the <a href="https://gcc.gnu.org/onlinedocs/gfortran/Error-and-Warning-Options.html" class="external-link">gfortran
+options documentation</a>:</p>
+<pre class="shell"><code>$ gfortran -o ljp lennard_jones_potential.f90 -Wconversion -Wconversion-extra</code></pre>
+</li>
+<li><p>Example modified code with no kind casting:</p></li>
+</ol>
+<pre class="fortran">
+<code>
+program lennard_jones_potential
+    !! Calculates the Lennard-Jones Potential for 2 Xenon atoms
+
+    <mark>use, intrinsic :: iso_fortran_env, only: r_64 =&gt; real64</mark>
+
+    implicit none
+
+    real(kind=r_64), parameter :: epsilon = 0.997_r_64  ! kJ/mol
+      !! well depth kJ/mol
+    real(kind=r_64), parameter :: sigma = 3.40_r_64     ! Angstroms
+      !! van der Waals radius Angstroms
+    <mark>real(kind=r_64), parameter :: lj_potential_const = 4_r_64</mark>
+      !! unit-less Lennard-Jones Potential constant
+
+    real(kind=r_64) :: separation_distance
+      !! separation distance r in Angstroms
+    real(kind=r_64) :: lj_potential
+      !! Lennard-Jones Potential kJ/mol
+
+    separation_distance = 4.0_r_64  ! Angstroms
+
+    ! Calculate the Lennard-Jones Potential using:
+    ! V(r) = 4*epsilon*[(sigma/r)**12 - (sigma/r)**6]
+    lj_potential = lj_potential_const * epsilon * &amp;
+                   ((sigma/separation_distance)**12 &amp;
+                   - (sigma/separation_distance)**6)
+
+    print *, 'V(4.0 Angstrom) = ', lj_potential, ' kJ/mol'
+
+end program lennard_jones_potential
+
+</code>
+</pre>
+<p>The exponents in the equation <code>12</code> and <code>6</code> have
+been left as integers. They have no kind suffix. This means they are the
+compilers default integer kind. Using an integer exponent where possible
+is faster than using a real exponent.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points</h3>
+<div class="callout-content">
+<ul>
+<li>Th</li>
+</ul>
+</div>
+</div>
+</div>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ -->
+</div>
+</section></section><section id="aio-02-basics-logic"><p>Content from <a href="02-basics-logic.html">Logic</a></p>
+<hr>
+<p>Last updated on 2025-04-25 |
+
+        <a href="https://github.com/astroDimitrios/intro-to-modern-fortran/edit/main/episodes/02-basics-logic.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How do we declare and assign values to variables?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Understand the different intrinsic data types.</li>
+<li>Declare and assign variables and parameters.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Variables store information we can use in our</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points</h3>
+<div class="callout-content">
+<ul>
+<li>Th</li>
+</ul>
+</div>
+</div>
+</div></section><section id="aio-02-basics-strings"><p>Content from <a href="02-basics-strings.html">Strings</a></p>
+<hr>
+<p>Last updated on 2025-04-25 |
+
+        <a href="https://github.com/astroDimitrios/intro-to-modern-fortran/edit/main/episodes/02-basics-strings.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How do we declare and assign values to variables?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Understand the different intrinsic data types.</li>
+<li>Declare and assign variables and parameters.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Variables store information we can use in our</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points</h3>
+<div class="callout-content">
+<ul>
+<li>Th</li>
+</ul>
+</div>
+</div>
 </div></section>
 </div>
     </main>
@@ -771,8 +2305,8 @@ error</em>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
   "url": "https://astroDimitrios.github.io/intro-to-modern-fortran/aio.html",
   "identifier": "https://astroDimitrios.github.io/intro-to-modern-fortran/aio.html",
   "dateCreated": "2023-08-04",
-  "dateModified": "2025-04-22",
-  "datePublished": "2025-04-22"
+  "dateModified": "2025-04-25",
+  "datePublished": "2025-04-25"
 }
 
   </script><script>

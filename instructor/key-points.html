@@ -390,7 +390,19 @@ This gives the variable the <code>save</code> attribute.</li>
 </ul></section><section id="02-basics-maths"><h2 class="section-heading"><a href="02-basics-maths.html">Maths</a></h2>
 <hr class="half-width">
 <ul>
-<li>Th</li>
+<li>Operators in order of precedance: <code>**</code>, <code>*</code>,
+<code>/</code>, <code>+</code>, and <code>-</code>.</li>
+<li>List of <a href="https://fortran-lang.org/learn/intrinsics/math/" class="external-link">intrinsic maths
+functions</a>.</li>
+<li>A numeric variables <strong>kind</strong> specifies its
+floating-point precision. 32-bit, 64-bit etc.</li>
+<li>Always specify a kind when defining and assigning values to
+variables. Otherwise Fortran will default to the compilers single
+precision.</li>
+<li>Avoid mixing precision and kinds (e.g. integers with reals, or
+32-bit with 64-bit). The compiler will implicitly convert the lower
+precision value to a higher precision value. This can slow down your
+programs.</li>
 </ul></section><section id="02-basics-logic"><h2 class="section-heading"><a href="02-basics-logic.html">Logic</a></h2>
 <hr class="half-width">
 <ul>

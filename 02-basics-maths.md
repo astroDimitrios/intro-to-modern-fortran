@@ -325,21 +325,20 @@ How has the output changed?
 
 ::: solution
 
-<pre class="fortran">
-<code>
+```fortran
 program maths
     !! Test program to demonstrate Fortran arithmetic
 
-    <mark>use, intrinsic :: iso_fortran_env, only: r_64 => real64</mark>
+    use, intrinsic :: iso_fortran_env, only: r_64 => real64
 
     implicit none
 
-    <mark>real(kind=r_64)</mark>, parameter :: pi = 3.141592654_r_64
+    real(kind=r_64), parameter :: pi = 3.141592654_r_64
       !! Value of pi
 
-    <mark>real(kind=r_64)</mark> :: radius
+    real(kind=r_64) :: radius
       !! Radius of the circle in cm
-    <mark>real(kind=r_64)</mark> :: area
+    real(kind=r_64) :: area
       !! Area of the circle in cm
 
     ! this float must be written as 5.0 (sometimes seen as 5.)
@@ -353,8 +352,7 @@ program maths
 
 end program maths
 
-</code>
-</pre>
+```
 
 Example output before (32 bit single precision):
 
@@ -500,6 +498,8 @@ by being consistent with your precision.
 
 :::: challenge
 
+## Remove Casting
+
 1. Find your compiler documentation.
    Is there a flag that warns you about implicit conversions / kind casting?
    If there is, compile your program with the flag.
@@ -519,12 +519,11 @@ by being consistent with your precision.
 
 2. Example modified code with no kind casting:
 
-<pre class="fortran">
-<code>
+```fortran
 program lennard_jones_potential
     !! Calculates the Lennard-Jones Potential for 2 Xenon atoms
 
-    <mark>use, intrinsic :: iso_fortran_env, only: r_64 => real64</mark>
+    use, intrinsic :: iso_fortran_env, only: r_64 => real64
 
     implicit none
 
@@ -532,7 +531,7 @@ program lennard_jones_potential
       !! well depth kJ/mol
     real(kind=r_64), parameter :: sigma = 3.40_r_64     ! Angstroms
       !! van der Waals radius Angstroms
-    <mark>real(kind=r_64), parameter :: lj_potential_const = 4_r_64</mark>
+    real(kind=r_64), parameter :: lj_potential_const = 4_r_64
       !! unit-less Lennard-Jones Potential constant
 
     real(kind=r_64) :: separation_distance
@@ -552,8 +551,7 @@ program lennard_jones_potential
 
 end program lennard_jones_potential
 
-</code>
-</pre>
+```
 
 The exponents in the equation `12` and `6`
 have been left as integers.
@@ -567,6 +565,16 @@ is faster than using a real exponent.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Th
+- Operators in order of precedance: `**`, `*`, `/`, `+`, and `-`.
+- List of [intrinsic maths functions](https://fortran-lang.org/learn/intrinsics/math/).
+- A numeric variables **kind** specifies its floating-point precision.
+  32-bit, 64-bit etc.
+- Always specify a kind when defining and assigning values to variables.
+  Otherwise Fortran will default to the compilers single precision.
+- Avoid mixing precision and kinds
+  (e.g. integers with reals, or 32-bit with 64-bit).
+  The compiler will implicitly convert the lower precision value
+  to a higher precision value.
+  This can slow down your programs.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

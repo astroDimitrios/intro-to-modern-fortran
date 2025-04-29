@@ -244,7 +244,7 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="01-trivial-program.html">1. A Trivial Program</a>
+        <a href="02-variables.html">1. Variables</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -256,7 +256,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="02-variables.html">2. Variables</a>
+        <a href="03-maths.html">2. Maths</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -268,7 +268,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="03-maths.html">3. Maths</a>
+        <a href="04-logic.html">3. Logic</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -280,19 +280,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-logic.html">4. Logic</a>
-    </div>
-<!--/div.accordion-header-->
-
-  </div>
-<!--/div.accordion-item-->
-</div>
-<!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush6">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading6">
-        <a href="05-strings.html">5. Strings</a>
+        <a href="05-strings.html">4. Strings</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -356,424 +344,7 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         
         
-<section id="aio-01-trivial-program"><p>Content from <a href="01-trivial-program.html">A Trivial Program</a></p>
-<hr>
-<p>Last updated on 2025-03-21 |
-
-        <a href="https://github.com/astroDimitrios/intro-to-modern-fortran/edit/main/episodes/01-trivial-program.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
-        </div>
-<div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul>
-<li>How do you write programs in Fortran?</li>
-<li>How do you compile the Fortran code to make an executable?</li>
-<li>How do we run that executable and see any output?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<p>Be able to</p>
-<ul>
-<li>write</li>
-<li>compile</li>
-<li>run</li>
-</ul>
-<p>a basic Fortran program.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>During the setup you compiled a simple <code>hello world</code>
-program. Let’s look at that program in more detail:</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">cd</span> ~/Desktop/intro-to-modern-fortran/01-trivial-program</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">cat</span> hello_world.f90</span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">program</span> hello_world</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, <span class="st">'Hello world!'</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="kw">end program</span> hello_world</span></code></pre>
-</div>
-<p>The first statement <code>program hello_world</code> starts the
-program. It also defines the program name, <code>hello_world</code>. It
-is matched by the <code>end</code> statement
-(<code>end program hello_world</code>). The <code>end</code> statement
-is always the last statement in a program.</p>
-<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
-  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Style Guide - Labels </h3>
-</button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
-<div class="accordion-body">
-<p><code>program</code> on its own marks the start of a program and
-<code>end</code> on its own will end the program. Words that follow
-<code>program</code> or <code>end</code> are labels which improve
-readability. Some legacy codes may not have labels.</p>
-</div>
-</div>
-</div>
-</div>
-<section><h2 class="section-heading" id="implicit-none">Implicit None<a class="anchor" aria-label="anchor" href="#implicit-none"></a>
-</h2>
-<hr class="half-width">
-<p>Some variables in Fortran have a default type. Variables with names
-beginning with letters <code>i-n</code> are implicitly of type
-<code>integer</code> Anything else is of type <code>real</code>.</p>
-<p><strong>This is very bad practice and modern Fortran should not be
-used in this way.</strong></p>
-<p>To prevent implicit typing we add the:</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">implicit</span> <span class="kw">none</span></span></code></pre>
-</div>
-<p>statement to all <code>programs</code> (and <code>modules</code>,
-<code>functions</code>, and <code>subroutines</code> that you will
-encounter in later episodes).</p>
-<p>Now all variable names must be declared explicitly before they are
-referenced.</p>
-<p>The only executable line in this program is the <code>print</code>
-statement. We will cover IO in a later episode. For now, know that
-<code>print *,</code> will print what follows to standard output when
-the program runs. In this case, it will print the string
-<code>Hello world!</code> to our terminal.</p>
-</section><section><h2 class="section-heading" id="comments">Comments<a class="anchor" aria-label="anchor" href="#comments"></a>
-</h2>
-<hr class="half-width">
-<p>Comments start with an exclamation mark <code>!</code>. Comments can
-appear on their own line, or after any other Fortran statement.</p>
-<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
-  <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Legacy Fortran - F77 style comments </h3>
-</button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
-<div class="accordion-body">
-<p>You may see code that has comments written like this:</p>
-<div class="codewrapper sourceCode" id="cb4">
-<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">c      this is a comment</span></span></code></pre>
-</div>
-<p>with a <code>c</code> in the first column. In new code use the modern
-<code>!</code> comments.</p>
-</div>
-</div>
-</div>
-</div>
-<div id="add-comments-to-hello_world.f90" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="add-comments-to-hello_world.f90" class="callout-inner">
-<h3 class="callout-title">Add comments to hello_world.f90</h3>
-<div class="callout-content">
-<p>Add two comments to your file:</p>
-<ol style="list-style-type: decimal">
-<li>The first should explain what the program does</li>
-<li>The second should explain the purpose of
-<code>implicit none</code>
-</li>
-</ol>
-<p>Think about where the best place for these comments are.</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">program</span> hello_world</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>    <span class="co">!! A simple hello world program</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span>  <span class="co">! prevent implicit typing (to integers) of variables</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>                   <span class="co">! whose name starts with the letters i-n</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, <span class="st">'Hello world!'</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="kw">end program</span> hello_world</span></code></pre>
-</div>
-<ol style="list-style-type: decimal">
-<li>We have placed a comment describing the program under the
-<code>program</code> statement. You might also see program descriptions
-before the <code>program</code> statement. Note the double
-<code>!</code> at the start of the comment. This allows the automatic
-documentation generator <a href="https://forddocs.readthedocs.io/en/stable/index.html" class="external-link">FORD</a> to
-extract documentation from the comment.</li>
-<li>The second comment could have been placed before or after the
-<code>implicit none</code> statement. We have shown an <em>inline</em>
-comment. Note the two spaces between the Fortran and the start of the
-comment, and the comment spans multiple lines with each <code>!</code>
-aligned vertically.</li>
-</ol>
-<p>You may have noticed comments at the top of the Fortran files you
-downloaded during the setup. Those comments provide licensing and
-authorship information.</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="compiling">Compiling<a class="anchor" aria-label="anchor" href="#compiling"></a>
-</h2>
-<hr class="half-width">
-<p>Fortran is a compiled language (like C++). A compiler turns
-human-readable source code into machine code. This machine code can then
-be executed by the computer. Languages like Python are interpreted. This
-means Python source code is executed directly without being compiled
-into machine code first. The program is parsed, interpreted, and
-executed each time it is run. Compiled programs are usually more
-efficient than interpreted programs. This is a major reason that
-compiled languages like Fortran remain popular. The draw back is that
-there is an extra step in building Fortran programs.</p>
-<p>There are several steps<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> that occur during compilation. Your
-compiler takes care of each step for you. To test your compiler in the
-setup episode you ran:</p>
-<div class="tabs">
-<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
-<button class="nav-link active" id="nav-tab-1-GFortran" name="GFortran" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-GFortran" type="button" role="tab" aria-controls="nav-tabpanel-1-GFortran" aria-selected="true">
-  <h3 class="tab-header" id="nav-tab-heading-1-GFortran">
-  GFortran
-  </h3>
-</button>
-<button class="nav-link" id="nav-tab-1-Intel" name="Intel" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Intel" type="button" role="tab" aria-controls="nav-tabpanel-1-Intel" aria-selected="false">
-  <h3 class="tab-header" id="nav-tab-heading-1-Intel">
-  Intel
-  </h3>
-</button>
-<button class="nav-link" id="nav-tab-1-Flang" name="Flang" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Flang" type="button" role="tab" aria-controls="nav-tabpanel-1-Flang" aria-selected="false">
-  <h3 class="tab-header" id="nav-tab-heading-1-Flang">
-  Flang
-  </h3>
-</button>
-<button class="nav-link" id="nav-tab-1-Cray" name="Cray" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-Cray" type="button" role="tab" aria-controls="nav-tabpanel-1-Cray" aria-selected="false">
-  <h3 class="tab-header" id="nav-tab-heading-1-Cray">
-  Cray
-  </h3>
-</button>
-</div>
-</nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-1-GFortran" role="tabpanel">
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">gfortran</span> hello_world.f90</span></code></pre>
-</div>
-</div>
-<div id="nav-tabpanel-1-Intel" class="tab-pane" aria-labelledby="nav-tab-1-Intel" role="tabpanel">
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">ifx</span> hello_world.f90</span></code></pre>
-</div>
-</div>
-<div id="nav-tabpanel-1-Flang" class="tab-pane" aria-labelledby="nav-tab-1-Flang" role="tabpanel">
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">flang</span> hello_world.f90</span></code></pre>
-</div>
-</div>
-<div id="nav-tabpanel-1-Cray" class="tab-pane" aria-labelledby="nav-tab-1-Cray" role="tabpanel">
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">ftn</span> hello_world.f90</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<p>This created a file named <code>a.out</code>. This is the default
-executable name if no name is specified. To tell the compiler the name
-of the executable use the <code>-o</code> flag:</p>
-<div class="tabs">
-<nav><div id="nav-tab-2" class="nav nav-tabs" role="tablist">
-<button class="nav-link active" id="nav-tab-2-GFortran" name="GFortran" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-GFortran" type="button" role="tab" aria-controls="nav-tabpanel-2-GFortran" aria-selected="true">
-  <h3 class="tab-header" id="nav-tab-heading-2-GFortran">
-  GFortran
-  </h3>
-</button>
-<button class="nav-link" id="nav-tab-2-Intel" name="Intel" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-Intel" type="button" role="tab" aria-controls="nav-tabpanel-2-Intel" aria-selected="false">
-  <h3 class="tab-header" id="nav-tab-heading-2-Intel">
-  Intel
-  </h3>
-</button>
-<button class="nav-link" id="nav-tab-2-Flang" name="Flang" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-Flang" type="button" role="tab" aria-controls="nav-tabpanel-2-Flang" aria-selected="false">
-  <h3 class="tab-header" id="nav-tab-heading-2-Flang">
-  Flang
-  </h3>
-</button>
-<button class="nav-link" id="nav-tab-2-Cray" name="Cray" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-2-Cray" type="button" role="tab" aria-controls="nav-tabpanel-2-Cray" aria-selected="false">
-  <h3 class="tab-header" id="nav-tab-heading-2-Cray">
-  Cray
-  </h3>
-</button>
-</div>
-</nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-2-GFortran" role="tabpanel">
-<div class="codewrapper sourceCode" id="cb10">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> hello_world hello_world.f90</span></code></pre>
-</div>
-</div>
-<div id="nav-tabpanel-2-Intel" class="tab-pane" aria-labelledby="nav-tab-2-Intel" role="tabpanel">
-<div class="codewrapper sourceCode" id="cb11">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> hello_world hello_world.f90</span></code></pre>
-</div>
-</div>
-<div id="nav-tabpanel-2-Flang" class="tab-pane" aria-labelledby="nav-tab-2-Flang" role="tabpanel">
-<div class="codewrapper sourceCode" id="cb12">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> hello_world hello_world.f90</span></code></pre>
-</div>
-</div>
-<div id="nav-tabpanel-2-Cray" class="tab-pane" aria-labelledby="nav-tab-2-Cray" role="tabpanel">
-<div class="codewrapper sourceCode" id="cb13">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">ftn</span> <span class="at">-o</span> hello_world hello_world.f90</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<p>Now run <code>ls</code> to see the new executable:</p>
-<div class="codewrapper sourceCode" id="cb14">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">ls</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>hello_world  hello_world.f90</code></pre>
-</div>
-<p>We now have an executable called <code>hello_world</code>. Sometimes
-code can compile but fail when executed<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. Let’s run this
-executable to check it works:</p>
-<div class="codewrapper sourceCode" id="cb16">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">./hello_world</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code> Hello world!</code></pre>
-</div>
-<div id="compiler-documentation-and-flags" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="compiler-documentation-and-flags" class="callout-inner">
-<h3 class="callout-title">Compiler Documentation and Flags</h3>
-<div class="callout-content">
-<p>Take a moment to find and bookmark the documentation for your
-compiler. Find the correct flags to:</p>
-<ul>
-<li>Turn on debugging</li>
-<li>Specify the default optimisation level</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
-<div class="accordion-body">
-<ul>
-<li><a href="https://gcc.gnu.org/onlinedocs/gcc-4.3.6/gfortran/Invoking-GNU-Fortran.html#Invoking-GNU-Fortran" class="external-link">GNU
-gfortran command options</a></li>
-<li><a href="https://www.intel.com/content/www/us/en/docs/fortran-compiler/developer-guide-reference/2025-0/overview.html" class="external-link">Intel
-ifx docs</a></li>
-<li><a href="https://flang.llvm.org/docs/FlangCommandLineReference.html" class="external-link">LLVM
-Flang command line reference</a></li>
-<li><a href="https://cpe.ext.hpe.com/docs/latest/cce/man1/crayftn.1.html" class="external-link">Cray
-ftn docs</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="filenames">Filenames<a class="anchor" aria-label="anchor" href="#filenames"></a>
-</h2>
-<hr class="half-width">
-<p>Fortran files normally end in <code>.f90</code>, although they can
-have different <a href="https://fortranwiki.org/fortran/show/File+extensions" class="external-link">file
-extensions</a>. The <code>.f90</code> extension is the most widely
-recognised across compilers. You may see Fortran files with an
-upper-case extension <code>.F90</code>. This tells the compiler to <a href="https://fortranwiki.org/fortran/show/Preprocessors" class="external-link">pre-process</a>
-the file before compiling.</p>
-<p>In the next episode we will introduce variable declaration, and you
-will write your first Fortran program from scratch.</p>
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Key Points</h3>
-<div class="callout-content">
-<ul>
-<li>Fortran programs start with the <code>program &lt;label&gt;</code>
-statement.</li>
-<li>Fortran programs end with the <code>end program &lt;label&gt;</code>
-statement.</li>
-<li>Always use <code>implicit none</code> to prevent implicit typing for
-variables.</li>
-<li>Fortran comments start with <code>!</code>.</li>
-<li>The <code>-o</code> flag specifies the name of the compiled
-executable:
-<code>&lt;compiler_command&gt; -o &lt;executable_name&gt; &lt;source_file.f90&gt;</code>.</li>
-</ul>
-</div>
-</div>
-</div>
-<!--
-Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use.
- -->
-</section><div class="footnotes footnotes-end-of-document">
-<hr>
-<ol>
-<li id="fn1"><p>Compilation steps for a C program: <a href="https://www.geeksforgeeks.org/compiling-a-c-program-behind-the-scenes/" class="external-link uri">https://www.geeksforgeeks.org/compiling-a-c-program-behind-the-scenes/</a>,
-the steps are the same for Fortran!<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>If a program fails to compile that’s a <em>compiler
-error</em>. If a program compiles but fails to run that’s a <em>runtime
-error</em>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-</ol>
-</div></section><section id="aio-02-variables"><p>Content from <a href="02-variables.html">Variables</a></p>
+<section id="aio-02-variables"><p>Content from <a href="02-variables.html">Variables</a></p>
 <hr>
 <p>Last updated on 2025-04-25 |
 
@@ -1422,7 +993,7 @@ variable declaration.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div></section><section id="aio-03-maths"><p>Content from <a href="03-maths.html">Maths</a></p>
 <hr>
-<p>Last updated on 2025-04-25 |
+<p>Last updated on 2025-04-29 |
 
         <a href="https://github.com/astroDimitrios/intro-to-modern-fortran/edit/main/episodes/03-maths.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1531,28 +1102,28 @@ before printing the value of <code>pi</code> on the same line.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-GFortran">
+<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-1-GFortran" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Intel">
+<div id="nav-tabpanel-1-Intel" class="tab-pane" aria-labelledby="nav-tab-1-Intel" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Flang">
+<div id="nav-tabpanel-1-Flang" class="tab-pane" aria-labelledby="nav-tab-1-Flang" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Cray">
+<div id="nav-tabpanel-1-Cray" class="tab-pane" aria-labelledby="nav-tab-1-Cray" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1687,28 +1258,28 @@ maths functions</a>.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-GFortran">
+<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-2-GFortran" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Intel">
+<div id="nav-tabpanel-2-Intel" class="tab-pane" aria-labelledby="nav-tab-2-Intel" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Flang">
+<div id="nav-tabpanel-2-Flang" class="tab-pane" aria-labelledby="nav-tab-2-Flang" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Cray">
+<div id="nav-tabpanel-2-Cray" class="tab-pane" aria-labelledby="nav-tab-2-Cray" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1756,7 +1327,7 @@ is commonly 32 or 64-bit precision. We can specify the precision using
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-1" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-1">
+<div id="nav-tabpanel-1-1" class="tab-pane show active" aria-labelledby="nav-tab-1-1" role="tabpanel">
 <p>We will be using <code>iso_fortran_env</code> throughout this lesson.
 <code>iso_fortran_env</code> is an intrinsic Fortran module. It was
 introduced in the F2008 standard.</p>
@@ -1781,7 +1352,7 @@ introduced in the F2008 standard.</p>
 <pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="co">current_distance_from_sun = 1.3_r_64</span></span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-2" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-2">
+<div id="nav-tabpanel-1-2" class="tab-pane" aria-labelledby="nav-tab-1-2" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2075,11 +1646,12 @@ simplest solution which avoids casting.</p>
 </div>
 </li>
 </ul>
-<p>This program uses mixed kinds in its arithmetic. Some programs have
-mixed precision as well. i.e. 32 bit integers in an equation with 64 bit
-integers. In this case the 32 bit integers are promoted to 64 bit by the
-compiler before use. It is best to avoid implicit conversions like this
-by being consistent with your precision.</p>
+<p>This program uses mixed type in its arithmetic (reals and integers).
+Some programs have mixed precision (kinds) as well. i.e. 32 bit integers
+in an equation with 64 bit integers. In this case the 32 bit integers
+are promoted to 64 bit by the compiler before use. It is best to avoid
+implicit conversions like this by being consistent with your
+precision.</p>
 <div id="remove-casting" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -2091,7 +1663,7 @@ by being consistent with your precision.</p>
 <li>Find your compiler documentation. Is there a flag that warns you
 about implicit conversions / kind casting? If there is, compile your
 program with the flag. What warning do you get?</li>
-<li>Modify your solution to the last challenge to remove any kind
+<li>Modify your solution to the last challenge to remove any type/kind
 casting.</li>
 </ol>
 </div>
@@ -2110,42 +1682,61 @@ casting.</li>
 the <a href="https://gcc.gnu.org/onlinedocs/gfortran/Error-and-Warning-Options.html" class="external-link">gfortran
 options documentation</a>:</p>
 <pre class="shell"><code>$ gfortran -o ljp lennard_jones_potential.f90 -Wconversion -Wconversion-extra</code></pre>
+<p>Note that in the solution code to the last challenge gfortran will
+still <strong>not</strong> provide a warning. The parameter was declared
+as an integer and used in arithmetic with reals (mixed type). So why is
+there no warning about conversion?</p>
+<p>Because the variable is a parameter the compiler is performing
+optimisations under the hood that remove the type casting. Remove the
+parameter keyword and the following warning appears:</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>lennard_jones_potential.f90:24:35:
+
+    24 |   lj_potential = lj_potential_const * epsilon * &amp;
+       |                                   1
+Warning: Conversion from INTEGER(8) to REAL(8) at (1) [-Wconversion-extra]</code></pre>
+</div>
+<p>So turning on compiler warnings can be useful but are no substitute
+for thorough code and science review. A later episode goes deeper into
+compiler usage and debugging.</p>
 </li>
-<li><p>Example modified code with no kind casting:</p></li>
+<li><p>Example modified code with no type/kind casting:</p></li>
 </ol>
-<div class="codewrapper sourceCode" id="cb34">
+<div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="kw">program</span> lennard_jones_potential</span>
-<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a>    <span class="co">!! Calculates the Lennard-Jones Potential for 2 Xenon atoms</span></span>
-<span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a></span>
-<span id="cb34-4"><a href="#cb34-4" tabindex="-1"></a>    <span class="kw">use</span>, <span class="kw">intrinsic</span> <span class="dt">::</span> iso_fortran_env, <span class="kw">only</span>: r_64 <span class="kw">=</span><span class="op">&gt;</span> real64</span>
-<span id="cb34-5"><a href="#cb34-5" tabindex="-1"></a></span>
-<span id="cb34-6"><a href="#cb34-6" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
-<span id="cb34-7"><a href="#cb34-7" tabindex="-1"></a></span>
-<span id="cb34-8"><a href="#cb34-8" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span>, <span class="dt">parameter</span> <span class="dt">::</span> <span class="fu">epsilon</span> <span class="kw">=</span> <span class="fl">0.997_r_64</span>  <span class="co">! kJ/mol</span></span>
-<span id="cb34-9"><a href="#cb34-9" tabindex="-1"></a>      <span class="co">!! well depth kJ/mol</span></span>
-<span id="cb34-10"><a href="#cb34-10" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span>, <span class="dt">parameter</span> <span class="dt">::</span> sigma <span class="kw">=</span> <span class="fl">3.40_r_64</span>     <span class="co">! Angstroms</span></span>
-<span id="cb34-11"><a href="#cb34-11" tabindex="-1"></a>      <span class="co">!! van der Waals radius Angstroms</span></span>
-<span id="cb34-12"><a href="#cb34-12" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span>, <span class="dt">parameter</span> <span class="dt">::</span> lj_potential_const <span class="kw">=</span> <span class="dv">4_r_64</span></span>
-<span id="cb34-13"><a href="#cb34-13" tabindex="-1"></a>      <span class="co">!! unit-less Lennard-Jones Potential constant</span></span>
-<span id="cb34-14"><a href="#cb34-14" tabindex="-1"></a></span>
-<span id="cb34-15"><a href="#cb34-15" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span> <span class="dt">::</span> separation_distance</span>
-<span id="cb34-16"><a href="#cb34-16" tabindex="-1"></a>      <span class="co">!! separation distance r in Angstroms</span></span>
-<span id="cb34-17"><a href="#cb34-17" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span> <span class="dt">::</span> lj_potential</span>
-<span id="cb34-18"><a href="#cb34-18" tabindex="-1"></a>      <span class="co">!! Lennard-Jones Potential kJ/mol</span></span>
-<span id="cb34-19"><a href="#cb34-19" tabindex="-1"></a></span>
-<span id="cb34-20"><a href="#cb34-20" tabindex="-1"></a>    separation_distance <span class="kw">=</span> <span class="fl">4.0_r_64</span>  <span class="co">! Angstroms</span></span>
-<span id="cb34-21"><a href="#cb34-21" tabindex="-1"></a></span>
-<span id="cb34-22"><a href="#cb34-22" tabindex="-1"></a>    <span class="co">! Calculate the Lennard-Jones Potential using:</span></span>
-<span id="cb34-23"><a href="#cb34-23" tabindex="-1"></a>    <span class="co">! V(r) = 4*epsilon*[(sigma/r)**12 - (sigma/r)**6]</span></span>
-<span id="cb34-24"><a href="#cb34-24" tabindex="-1"></a>    lj_potential <span class="kw">=</span> lj_potential_const <span class="kw">*</span> <span class="fu">epsilon</span> <span class="kw">*</span> <span class="kw">&amp;</span></span>
-<span id="cb34-25"><a href="#cb34-25" tabindex="-1"></a>                   ((sigma<span class="kw">/</span>separation_distance)<span class="kw">**</span><span class="dv">12</span> <span class="kw">&amp;</span></span>
-<span id="cb34-26"><a href="#cb34-26" tabindex="-1"></a>                   <span class="kw">-</span> (sigma<span class="kw">/</span>separation_distance)<span class="kw">**</span><span class="dv">6</span>)</span>
-<span id="cb34-27"><a href="#cb34-27" tabindex="-1"></a></span>
-<span id="cb34-28"><a href="#cb34-28" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, <span class="st">'V(4.0 Angstrom) = '</span>, lj_potential, <span class="st">' kJ/mol'</span></span>
-<span id="cb34-29"><a href="#cb34-29" tabindex="-1"></a></span>
-<span id="cb34-30"><a href="#cb34-30" tabindex="-1"></a><span class="kw">end program</span> lennard_jones_potential</span></code></pre>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="kw">program</span> lennard_jones_potential</span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a>    <span class="co">!! Calculates the Lennard-Jones Potential for 2 Xenon atoms</span></span>
+<span id="cb35-3"><a href="#cb35-3" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" tabindex="-1"></a>    <span class="kw">use</span>, <span class="kw">intrinsic</span> <span class="dt">::</span> iso_fortran_env, <span class="kw">only</span>: r_64 <span class="kw">=</span><span class="op">&gt;</span> real64</span>
+<span id="cb35-5"><a href="#cb35-5" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" tabindex="-1"></a>    <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb35-7"><a href="#cb35-7" tabindex="-1"></a></span>
+<span id="cb35-8"><a href="#cb35-8" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span>, <span class="dt">parameter</span> <span class="dt">::</span> <span class="fu">epsilon</span> <span class="kw">=</span> <span class="fl">0.997_r_64</span>  <span class="co">! kJ/mol</span></span>
+<span id="cb35-9"><a href="#cb35-9" tabindex="-1"></a>      <span class="co">!! well depth kJ/mol</span></span>
+<span id="cb35-10"><a href="#cb35-10" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span>, <span class="dt">parameter</span> <span class="dt">::</span> sigma <span class="kw">=</span> <span class="fl">3.40_r_64</span>     <span class="co">! Angstroms</span></span>
+<span id="cb35-11"><a href="#cb35-11" tabindex="-1"></a>      <span class="co">!! van der Waals radius Angstroms</span></span>
+<span id="cb35-12"><a href="#cb35-12" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span>, <span class="dt">parameter</span> <span class="dt">::</span> lj_potential_const <span class="kw">=</span> <span class="dv">4_r_64</span></span>
+<span id="cb35-13"><a href="#cb35-13" tabindex="-1"></a>      <span class="co">!! unit-less Lennard-Jones Potential constant</span></span>
+<span id="cb35-14"><a href="#cb35-14" tabindex="-1"></a></span>
+<span id="cb35-15"><a href="#cb35-15" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span> <span class="dt">::</span> separation_distance</span>
+<span id="cb35-16"><a href="#cb35-16" tabindex="-1"></a>      <span class="co">!! separation distance r in Angstroms</span></span>
+<span id="cb35-17"><a href="#cb35-17" tabindex="-1"></a>    <span class="dt">real(kind=r_64)</span> <span class="dt">::</span> lj_potential</span>
+<span id="cb35-18"><a href="#cb35-18" tabindex="-1"></a>      <span class="co">!! Lennard-Jones Potential kJ/mol</span></span>
+<span id="cb35-19"><a href="#cb35-19" tabindex="-1"></a></span>
+<span id="cb35-20"><a href="#cb35-20" tabindex="-1"></a>    separation_distance <span class="kw">=</span> <span class="fl">4.0_r_64</span>  <span class="co">! Angstroms</span></span>
+<span id="cb35-21"><a href="#cb35-21" tabindex="-1"></a></span>
+<span id="cb35-22"><a href="#cb35-22" tabindex="-1"></a>    <span class="co">! Calculate the Lennard-Jones Potential using:</span></span>
+<span id="cb35-23"><a href="#cb35-23" tabindex="-1"></a>    <span class="co">! V(r) = 4*epsilon*[(sigma/r)**12 - (sigma/r)**6]</span></span>
+<span id="cb35-24"><a href="#cb35-24" tabindex="-1"></a>    lj_potential <span class="kw">=</span> lj_potential_const <span class="kw">*</span> <span class="fu">epsilon</span> <span class="kw">*</span> <span class="kw">&amp;</span></span>
+<span id="cb35-25"><a href="#cb35-25" tabindex="-1"></a>                   ((sigma<span class="kw">/</span>separation_distance)<span class="kw">**</span><span class="dv">12</span> <span class="kw">&amp;</span></span>
+<span id="cb35-26"><a href="#cb35-26" tabindex="-1"></a>                   <span class="kw">-</span> (sigma<span class="kw">/</span>separation_distance)<span class="kw">**</span><span class="dv">6</span>)</span>
+<span id="cb35-27"><a href="#cb35-27" tabindex="-1"></a></span>
+<span id="cb35-28"><a href="#cb35-28" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, <span class="st">'V(4.0 Angstrom) = '</span>, lj_potential, <span class="st">' kJ/mol'</span></span>
+<span id="cb35-29"><a href="#cb35-29" tabindex="-1"></a></span>
+<span id="cb35-30"><a href="#cb35-30" tabindex="-1"></a><span class="kw">end program</span> lennard_jones_potential</span></code></pre>
 </div>
 <p>The exponents in the equation <code>12</code> and <code>6</code> have
 been left as integers. They have no kind suffix. This means they are the

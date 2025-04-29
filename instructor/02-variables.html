@@ -461,28 +461,28 @@ keywords page</a> contains a list of all Fortran keywords.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-1-GFortran" role="tabpanel">
+<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-GFortran">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Intel" class="tab-pane" aria-labelledby="nav-tab-1-Intel" role="tabpanel">
+<div id="nav-tabpanel-1-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Intel">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Flang" class="tab-pane" aria-labelledby="nav-tab-1-Flang" role="tabpanel">
+<div id="nav-tabpanel-1-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Flang">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Cray" class="tab-pane" aria-labelledby="nav-tab-1-Cray" role="tabpanel">
+<div id="nav-tabpanel-1-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Cray">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -550,7 +550,7 @@ readability.</li>
 </h3>
 <pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>number_of_pelicans          <span class="kw">=</span> <span class="dv">5</span></span>
 <span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>pelican_weight              <span class="kw">=</span> <span class="fl">2.5</span>  <span class="co">! kg</span></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2</span>, <span class="fl">0.9</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2e3</span>, <span class="fl">0.9e2</span>) <span class="co">! Scientific notation, -1,200 etc</span></span>
 <span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>is_young_pelican            <span class="kw">=</span> <span class="cn">.false.</span></span>
 <span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>pelican_tag                 <span class="kw">=</span> <span class="st">'Jeff'</span></span></code></pre>
 </div>
@@ -592,7 +592,7 @@ program</h3>
 <span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a></span>
 <span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a>    number_of_pelicans          <span class="kw">=</span> <span class="dv">5</span></span>
 <span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a>    pelican_weight              <span class="kw">=</span> <span class="fl">2.5</span>  <span class="co">! kg</span></span>
-<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a>    pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2</span>, <span class="fl">0.9</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a>    pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2e3</span>, <span class="fl">0.9e2</span>)</span>
 <span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a>    is_young_pelican            <span class="kw">=</span> <span class="cn">.false.</span></span>
 <span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a>    pelican_tag                 <span class="kw">=</span> <span class="st">'J'</span></span>
 <span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a></span>
@@ -628,28 +628,28 @@ program</h3>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-2-GFortran" role="tabpanel">
+<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-GFortran">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Intel" class="tab-pane" aria-labelledby="nav-tab-2-Intel" role="tabpanel">
+<div id="nav-tabpanel-2-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Intel">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Flang" class="tab-pane" aria-labelledby="nav-tab-2-Flang" role="tabpanel">
+<div id="nav-tabpanel-2-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Flang">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Cray" class="tab-pane" aria-labelledby="nav-tab-2-Cray" role="tabpanel">
+<div id="nav-tabpanel-2-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Cray">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -732,7 +732,7 @@ variables, e.g.</p>
 <span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a></span>
 <span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a>    number_of_pelicans          <span class="kw">=</span> <span class="dv">5</span></span>
 <span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a>    pelican_weight              <span class="kw">=</span> <span class="fl">2.5</span>  <span class="co">! kg</span></span>
-<span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a>    pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2</span>, <span class="fl">0.9</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a>    pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2e3</span>, <span class="fl">0.9e2</span>)</span>
 <span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a>    is_young_pelican            <span class="kw">=</span> <span class="cn">.false.</span></span>
 <span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a>    pelican_tag                 <span class="kw">=</span> <span class="st">'J'</span></span>
 <span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a></span>
@@ -800,7 +800,7 @@ when compiling?</li>
 <span id="cb24-11"><a href="#cb24-11" tabindex="-1"></a></span>
 <span id="cb24-12"><a href="#cb24-12" tabindex="-1"></a>    number_of_pelicans          <span class="kw">=</span> <span class="dv">5</span></span>
 <span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a>    pelican_weight              <span class="kw">=</span> <span class="fl">2.5</span>  <span class="co">! kg</span></span>
-<span id="cb24-14"><a href="#cb24-14" tabindex="-1"></a>    pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2</span>, <span class="fl">0.9</span>)</span>
+<span id="cb24-14"><a href="#cb24-14" tabindex="-1"></a>    pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2e3</span>, <span class="fl">0.9e2</span>)</span>
 <span id="cb24-15"><a href="#cb24-15" tabindex="-1"></a>    is_young_pelican            <span class="kw">=</span> <span class="cn">.false.</span></span>
 <span id="cb24-16"><a href="#cb24-16" tabindex="-1"></a>    <span class="co">! pelican_tag               = 'J'</span></span>
 <span id="cb24-17"><a href="#cb24-17" tabindex="-1"></a></span>
@@ -882,8 +882,8 @@ course.</li>
 <span id="cb26-17"><a href="#cb26-17" tabindex="-1"></a>      <span class="co">!! Pelican pod tracking tag</span></span>
 <span id="cb26-18"><a href="#cb26-18" tabindex="-1"></a></span>
 <span id="cb26-19"><a href="#cb26-19" tabindex="-1"></a>    number_of_pelicans          <span class="kw">=</span> <span class="dv">5</span></span>
-<span id="cb26-20"><a href="#cb26-20" tabindex="-1"></a>    pelican_weight              <span class="kw">=</span> <span class="fl">2.5</span>          <span class="co">! kg</span></span>
-<span id="cb26-21"><a href="#cb26-21" tabindex="-1"></a>    pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2</span>, <span class="fl">0.9</span>)  <span class="co">! births, deaths per year</span></span>
+<span id="cb26-20"><a href="#cb26-20" tabindex="-1"></a>    pelican_weight              <span class="kw">=</span> <span class="fl">2.5</span>              <span class="co">! kg</span></span>
+<span id="cb26-21"><a href="#cb26-21" tabindex="-1"></a>    pelican_population_dynamics <span class="kw">=</span> (<span class="kw">-</span><span class="fl">1.2e3</span>, <span class="fl">0.9e2</span>)  <span class="co">! births, deaths per year</span></span>
 <span id="cb26-22"><a href="#cb26-22" tabindex="-1"></a>    is_young_pelican            <span class="kw">=</span> <span class="cn">.false.</span></span>
 <span id="cb26-23"><a href="#cb26-23" tabindex="-1"></a></span>
 <span id="cb26-24"><a href="#cb26-24" tabindex="-1"></a>    <span class="fu">print</span> <span class="kw">*</span>, number_of_pelicans</span>

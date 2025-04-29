@@ -301,7 +301,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Logic</h1>
-        <p>Last updated on 2025-04-25 |
+        <p>Last updated on 2025-04-29 |
 
         <a href="https://github.com/astroDimitrios/intro-to-modern-fortran/edit/main/episodes/04-logic.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -337,7 +337,116 @@
 </div>
 </div>
 </div>
-<p>Variables store information we can use in our</p>
+<p>Fortran’s <code>logical</code> type has two values:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>  <span class="dt">logical</span> <span class="dt">::</span> is_below_20_metres <span class="kw">=</span> <span class="cn">.false.</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  <span class="dt">logical</span> <span class="dt">::</span> use_stochastic_physics <span class="kw">=</span> <span class="cn">.true.</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="logical-operators">Logical operators<a class="anchor" aria-label="anchor" href="#logical-operators"></a></h3>
+<p>Values can be tested logical operators <code>.or.</code>,
+<code>.and.</code> and <code>.not.</code> are available, and these can
+be used to set the value of logical variables.</p>
+<p>The precedence is illustrated by, e.g.,</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>  q <span class="kw">=</span> i <span class="op">.or.</span> j <span class="op">.and.</span> <span class="op">.not.</span> k    <span class="co">! evaluated as i .or. (j .and. (.not. k))</span></span></code></pre>
+</div>
+<p>where q, i, j, and k are all logical variables.</p>
+<p>Use brackets to avoid confusion over operator precedence.</p>
+</div>
+<div class="section level3">
+<h3 id="relational-operators">Relational operators<a class="anchor" aria-label="anchor" href="#relational-operators"></a></h3>
+<p>To form logical expressions from numeric or other expressions, we
+require relational operators. The are two forms in Fortran, illustrated
+in the table below. It is recommended that you avoid the older form.</p>
+<table class="table"><colgroup><col width="39%"><col width="15%"><col width="18%"><col width="27%"></colgroup><thead><tr class="header"><th>Relation</th>
+<th>Operator</th>
+<th>Older form</th>
+<th>For</th>
+</tr></thead><tbody><tr class="odd"><td>Less than</td>
+<td><code>&lt;</code></td>
+<td><code>.lt.</code></td>
+<td>
+<code>integer</code> <code>real</code>
+</td>
+</tr><tr class="even"><td>Less than or equal to</td>
+<td><code>&lt;=</code></td>
+<td><code>.le.</code></td>
+<td>
+<code>integer</code> <code>real</code>
+</td>
+</tr><tr class="odd"><td>Greater than</td>
+<td><code>&gt;</code></td>
+<td><code>.gt.</code></td>
+<td>
+<code>integer</code> <code>real</code>
+</td>
+</tr><tr class="even"><td>Greater than or equal to</td>
+<td><code>&gt;=</code></td>
+<td><code>.ge.</code></td>
+<td>
+<code>integer</code> <code>real</code>
+</td>
+</tr><tr class="odd"><td>Equal to</td>
+<td><code>==</code></td>
+<td><code>.eq.</code></td>
+<td>
+<code>integer</code> <code>real</code> <code>complex</code>
+</td>
+</tr><tr class="even"><td>Not equal to</td>
+<td><code>/=</code></td>
+<td><code>.neq.</code></td>
+<td>
+<code>integer</code> <code>real</code> <code>complex</code>
+</td>
+</tr></tbody></table></div>
+<div class="section level3">
+<h3 id="logical-equivalence">Logical equivalence<a class="anchor" aria-label="anchor" href="#logical-equivalence"></a></h3>
+<p>Equivalence between two logical expressions or variables is
+established via the logical operators <code>.eqv.</code> and
+<code>.neqv.</code>.</p>
+<p>While some some compilers may allow the use of <code>==</code>, this
+should be avoided.</p>
+</div>
+<div class="section level3">
+<h3 id="using-logical-operators">Using logical operators<a class="anchor" aria-label="anchor" href="#using-logical-operators"></a></h3>
+<p>These operators can be used to check and set the values of logical
+variables, dependent on other variables, e.g.</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">program</span> example4</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>   <span class="kw">implicit</span> <span class="kw">none</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>   <span class="dt">real</span>, <span class="dt">parameter</span>    <span class="dt">::</span> pi      <span class="kw">=</span> <span class="fl">3.14159265</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>   <span class="dt">logical</span>, <span class="dt">parameter</span> <span class="dt">::</span> switch1 <span class="kw">=</span> <span class="cn">.true.</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>   <span class="dt">real</span>    <span class="dt">::</span> a<span class="kw">=</span><span class="fl">3.0</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>   <span class="dt">logical</span> <span class="dt">::</span> test1, test2, test3</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>   test1 <span class="kw">=</span> a <span class="op">&gt;=</span> pi               <span class="co">! True if a is greater than or equal to pi</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>   test2 <span class="kw">=</span> (<span class="op">.not.</span> test1)         <span class="co">! True if test1 is False, False if test1 is True</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>   test3 <span class="kw">=</span> (test2 <span class="op">.eqv.</span> switch1) <span class="co">! True if test2 is True, False if test2 is False</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>   <span class="fu">print</span> <span class="kw">*</span>, test1</span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>   <span class="fu">print</span> <span class="kw">*</span>, test2</span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>   <span class="fu">print</span> <span class="kw">*</span>, test3</span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="kw">end program</span> example4</span></code></pre>
+</div>
+<p>Compiling and running this code will give the following output</p>
+<pre><code>$  ./a.out
+ F
+ T
+ T</code></pre>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -353,6 +462,7 @@
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
+</div>
 
 
 
@@ -414,7 +524,7 @@ any links that you are not going to use.
   "url": "https://astroDimitrios.github.io/intro-to-modern-fortran/instructor/04-logic.html",
   "identifier": "https://astroDimitrios.github.io/intro-to-modern-fortran/instructor/04-logic.html",
   "dateCreated": "2023-08-04",
-  "dateModified": "2025-04-25",
+  "dateModified": "2025-04-29",
   "datePublished": "2025-04-29"
 }
 

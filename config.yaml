@@ -60,7 +60,7 @@ contact: 'd.theodorakis@metoffice.gov.uk'
 
 # Order of episodes in your lesson
 episodes: 
-- 02-variables.md
+- 02-variables.Rmd
 - 03-maths.md
 - 04-logic.md
 - 05-strings.md

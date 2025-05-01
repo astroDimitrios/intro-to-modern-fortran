@@ -79,7 +79,7 @@ What do you notice about the output?
 
 ::: solution
 
-```fortran=
+```fortran
 program variables
 
     implicit none

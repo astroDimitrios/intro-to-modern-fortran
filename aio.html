@@ -36,7 +36,7 @@
       <div class="large-logo">
         <img id="incubator-logo" alt="Carpentries Incubator" src="assets/images/incubator-logo.svg"><span class="badge text-bg-danger">
           <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
-            <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="external-link alert-link">
+            <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="external-link alert-link">
               <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
               Pre-Alpha
             </a>
@@ -74,6 +74,7 @@
           </ul>
 </li>
       </div>
+
 
       <div class="dropdown" id="instructor-dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -424,7 +425,7 @@ is always the last statement in a program.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Style Guide - Labels </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p><code>program</code> on its own marks the start of a program and
 <code>end</code> on its own will end the program. Words that follow
@@ -468,7 +469,7 @@ appear on their own line, or after any other Fortran statement.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Legacy Fortran - F77 style comments </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>You may see code that has comments written like this:</p>
 <div class="codewrapper sourceCode" id="cb4">
@@ -486,6 +487,7 @@ appear on their own line, or after any other Fortran statement.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
+<span class="callout-header">Challenge</span>
 <div id="add-comments-to-hello_world.f90" class="callout-inner">
 <h3 class="callout-title">Add comments to hello_world.f90</h3>
 <div class="callout-content">
@@ -505,7 +507,7 @@ appear on their own line, or after any other Fortran statement.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -579,28 +581,28 @@ setup episode you ran:</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-GFortran">
+<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-1-GFortran" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">gfortran</span> hello_world.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Intel">
+<div id="nav-tabpanel-1-Intel" class="tab-pane" aria-labelledby="nav-tab-1-Intel" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">ifx</span> hello_world.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Flang">
+<div id="nav-tabpanel-1-Flang" class="tab-pane" aria-labelledby="nav-tab-1-Flang" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">flang</span> hello_world.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Cray">
+<div id="nav-tabpanel-1-Cray" class="tab-pane" aria-labelledby="nav-tab-1-Cray" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -636,28 +638,28 @@ of the executable use the <code>-o</code> flag:</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-GFortran">
+<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-2-GFortran" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> hello_world hello_world.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Intel">
+<div id="nav-tabpanel-2-Intel" class="tab-pane" aria-labelledby="nav-tab-2-Intel" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> hello_world hello_world.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Flang">
+<div id="nav-tabpanel-2-Flang" class="tab-pane" aria-labelledby="nav-tab-2-Flang" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> hello_world hello_world.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Cray">
+<div id="nav-tabpanel-2-Cray" class="tab-pane" aria-labelledby="nav-tab-2-Cray" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -694,6 +696,7 @@ executable to check it works:</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
+<span class="callout-header">Challenge</span>
 <div id="compiler-documentation-and-flags" class="callout-inner">
 <h3 class="callout-title">Compiler Documentation and Flags</h3>
 <div class="callout-content">
@@ -711,7 +714,7 @@ compiler. Find the correct flags to:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ul>
 <li><a href="https://gcc.gnu.org/onlinedocs/gcc-4.3.6/gfortran/Invoking-GNU-Fortran.html#Invoking-GNU-Fortran" class="external-link">GNU
@@ -742,8 +745,8 @@ will write your first Fortran program from scratch.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
+<span class="callout-header">Key Points</span>
 <div class="callout-inner">
-<h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul>
 <li>Fortran programs start with the <code>program &lt;label&gt;</code>
@@ -863,6 +866,7 @@ keywords page</a> contains a list of all Fortran keywords.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
+<span class="callout-header">Challenge</span>
 <div id="create-a-variables-program" class="callout-inner">
 <h3 class="callout-title">Create a <code>variables</code> program</h3>
 <div class="callout-content">
@@ -928,28 +932,28 @@ keywords page</a> contains a list of all Fortran keywords.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-GFortran">
+<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-1-GFortran" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Intel">
+<div id="nav-tabpanel-1-Intel" class="tab-pane" aria-labelledby="nav-tab-1-Intel" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Flang">
+<div id="nav-tabpanel-1-Flang" class="tab-pane" aria-labelledby="nav-tab-1-Flang" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Cray">
+<div id="nav-tabpanel-1-Cray" class="tab-pane" aria-labelledby="nav-tab-1-Cray" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1032,6 +1036,7 @@ by single or double quotes.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
+<span class="callout-header">Challenge</span>
 <div id="modify-your-variables-program" class="callout-inner">
 <h3 class="callout-title">Modify your <code>variables</code>
 program</h3>
@@ -1101,28 +1106,28 @@ program</h3>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-GFortran">
+<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-2-GFortran" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Intel">
+<div id="nav-tabpanel-2-Intel" class="tab-pane" aria-labelledby="nav-tab-2-Intel" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Flang">
+<div id="nav-tabpanel-2-Flang" class="tab-pane" aria-labelledby="nav-tab-2-Flang" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> variables variables.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Cray">
+<div id="nav-tabpanel-2-Cray" class="tab-pane" aria-labelledby="nav-tab-2-Cray" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1172,6 +1177,7 @@ style) with the unit.</li>
 <div class="callout-square">
 <i class="callout-icon" data-feather="alert-triangle"></i>
 </div>
+<span class="callout-header">Caution</span>
 <div id="assignment-on-declaration" class="callout-inner">
 <h3 class="callout-title">Assignment on declaration</h3>
 <div class="callout-content">
@@ -1244,6 +1250,7 @@ unable to modify <code>parameter</code> variables, e.g.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
+<span class="callout-header">Challenge</span>
 <div id="add-a-parameter-to-your-variables-program" class="callout-inner">
 <h3 class="callout-title">Add a parameter to your <code>variables</code>
 program</h3>
@@ -1323,6 +1330,7 @@ debugging and help make your code more portable.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
+<span class="callout-header">Challenge</span>
 <div id="tidy-up-your-program" class="callout-inner">
 <h3 class="callout-title">Tidy up your program</h3>
 <div class="callout-content">
@@ -1388,8 +1396,8 @@ for readability.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
+<span class="callout-header">Key Points</span>
 <div class="callout-inner">
-<h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul>
 <li>There are 5 intrinsic data types for Fortran variables:
@@ -1470,6 +1478,7 @@ point for this episode complete the challenge below.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
+<span class="callout-header">Challenge</span>
 <div id="create-a-maths-fortran-program" class="callout-inner">
 <h3 class="callout-title">Create a <code>maths</code> Fortran
 program</h3>
@@ -1531,28 +1540,28 @@ before printing the value of <code>pi</code> on the same line.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-GFortran">
+<div id="nav-tabpanel-1-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-1-GFortran" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Intel">
+<div id="nav-tabpanel-1-Intel" class="tab-pane" aria-labelledby="nav-tab-1-Intel" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Flang">
+<div id="nav-tabpanel-1-Flang" class="tab-pane" aria-labelledby="nav-tab-1-Flang" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-Cray">
+<div id="nav-tabpanel-1-Cray" class="tab-pane" aria-labelledby="nav-tab-1-Cray" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1618,8 +1627,10 @@ maths functions</a>.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
+<span class="callout-header">Challenge</span>
 <div id="calculate-the-area-of-a-circle-with-radius-5-cm" class="callout-inner">
-<h3 class="callout-title">Calculate the area of a circle with radius 5 cm</h3>
+<h3 class="callout-title">Calculate the area of a circle with radius 5
+cm</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal">
 <li>Add two new real variables for the <code>radius</code> and
@@ -1687,28 +1698,28 @@ maths functions</a>.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-2" class="tab-content">
-<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-2-GFortran">
+<div id="nav-tabpanel-2-GFortran" class="tab-pane show active" aria-labelledby="nav-tab-2-GFortran" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">gfortran</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Intel" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Intel">
+<div id="nav-tabpanel-2-Intel" class="tab-pane" aria-labelledby="nav-tab-2-Intel" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">ifx</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Flang" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Flang">
+<div id="nav-tabpanel-2-Flang" class="tab-pane" aria-labelledby="nav-tab-2-Flang" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">flang</span> <span class="at">-o</span> maths maths.f90</span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-2-Cray" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-2-Cray">
+<div id="nav-tabpanel-2-Cray" class="tab-pane" aria-labelledby="nav-tab-2-Cray" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1756,7 +1767,7 @@ is commonly 32 or 64-bit precision. We can specify the precision using
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-1" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-1">
+<div id="nav-tabpanel-1-1" class="tab-pane show active" aria-labelledby="nav-tab-1-1" role="tabpanel">
 <p>We will be using <code>iso_fortran_env</code> throughout this lesson.
 <code>iso_fortran_env</code> is an intrinsic Fortran module. It was
 introduced in the F2008 standard.</p>
@@ -1781,7 +1792,7 @@ introduced in the F2008 standard.</p>
 <pre class="sourceCode fortran" tabindex="0"><code class="sourceCode fortranfixed"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="co">current_distance_from_sun = 1.3_r_64  ! AU</span></span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-2" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-2">
+<div id="nav-tabpanel-1-2" class="tab-pane" aria-labelledby="nav-tab-1-2" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">FORTRAN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1810,6 +1821,7 @@ introduced in the F2008 standard.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="alert-triangle"></i>
 </div>
+<span class="callout-header">Caution</span>
 <div id="fortran-defaults-to-single-precision" class="callout-inner">
 <h3 class="callout-title">Fortran defaults to single precision</h3>
 <div class="callout-content">
@@ -1881,6 +1893,7 @@ docs</a>.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
+<span class="callout-header">Challenge</span>
 <div id="specify-the-precision-in-your-program" class="callout-inner">
 <h3 class="callout-title">Specify the precision in your program</h3>
 <div class="callout-content">
@@ -1953,6 +1966,7 @@ program. The value of the area is also now more accurate.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
+<span class="callout-header">Challenge</span>
 <div id="lennard-jones-potential" class="callout-inner">
 <h3 class="callout-title">Lennard-Jones Potential</h3>
 <div class="callout-content">
@@ -2085,6 +2099,7 @@ precision.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
+<span class="callout-header">Challenge</span>
 <div id="remove-casting" class="callout-inner">
 <h3 class="callout-title">Remove Casting</h3>
 <div class="callout-content">
@@ -2179,8 +2194,8 @@ is faster than using a real exponent.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
+<span class="callout-header">Key Points</span>
 <div class="callout-inner">
-<h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul>
 <li>Operators in order of precedance: <code>**</code>, <code>*</code>,
@@ -2381,8 +2396,8 @@ variables, dependent on other variables, e.g.</p>
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
+<span class="callout-header">Key Points</span>
 <div class="callout-inner">
-<h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul>
 <li>Th</li>
@@ -2433,8 +2448,8 @@ any links that you are not going to use.
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
+<span class="callout-header">Key Points</span>
 <div class="callout-inner">
-<h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul>
 <li>Th</li>
@@ -2459,15 +2474,17 @@ any links that you are not going to use.
 	
         | <a href="https://github.com/astroDimitrios/intro-to-modern-fortran/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/astroDimitrios/intro-to-modern-fortran/" class="external-link">Source</a></p>
-				<p><a href="https://github.com/astroDimitrios/intro-to-modern-fortran/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:d.theodorakis@metoffice.gov.uk">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
-			</div>
-			<div class="col-md-6">
+        <p>
+        <a href="https://github.com/astroDimitrios/intro-to-modern-fortran/blob/main/" class="external-link">Cite</a>
+        | <a href="mailto:d.theodorakis@metoffice.gov.uk">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+		</div>
+		<div class="col-md-6">
 
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/astroDimitrios/sandpaper/tree/b812495a69e3e3488627ba47bc01a6dfc7b28d14" class="external-link">sandpaper (0.16.13.9000)</a>, <a href="https://github.com/astroDimitrios/pegboard/tree/5e0d711121a581777d83cf270e298c933f112d52" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/astroDimitrios/varnish/tree/7c1ab925aa2bd2e6769ba68caa820231306b105b" class="external-link">varnish (1.0.5)</a></p>
-			</div>
+        <p>Built with <a href="https://github.com/astroDimitrios/sandpaper/tree/24b8b38b216892e339b3dc2ee47ebaae4a934243" class="external-link">sandpaper (0.18.6.9000)</a>, <a href="https://github.com/astroDimitrios/pegboard/tree/7dc6acfdd6233c0d124a0ecf288325edc40dd96d" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/astroDimitrios/varnish/tree/5c2d7048e460689fcd39f676f7b08844bf21e676" class="external-link">varnish (1.0.9)</a></p>
+		</div>
 		</footer>
 </div> <!-- / div.container -->
 	<div id="to-top">
@@ -2489,8 +2506,8 @@ any links that you are not going to use.
   "url": "https://astroDimitrios.github.io/intro-to-modern-fortran/aio.html",
   "identifier": "https://astroDimitrios.github.io/intro-to-modern-fortran/aio.html",
   "dateCreated": "2023-08-04",
-  "dateModified": "2026-02-17",
-  "datePublished": "2026-02-17"
+  "dateModified": "2026-02-24",
+  "datePublished": "2026-02-24"
 }
 
   </script><script>
